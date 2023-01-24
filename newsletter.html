@@ -1,0 +1,2188 @@
+
+<!doctype html>
+
+<!--[if lt IE 7]><html lang="en-GB" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html lang="en-GB" class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html lang="en-GB" class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en-GB" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M3R7SKL');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="utf-8">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script type="text/javascript">
+//----------------------------------------------------------
+//------ JAVASCRIPT HOOK FUNCTIONS FOR GRAVITY FORMS -------
+//----------------------------------------------------------
+
+if ( ! gform ) {
+	document.addEventListener( 'gform_main_scripts_loaded', function() { gform.scriptsLoaded = true; } );
+	window.addEventListener( 'DOMContentLoaded', function() { gform.domLoaded = true; } );
+
+	var gform = {
+		domLoaded: false,
+		scriptsLoaded: false,
+		initializeOnLoaded: function( fn ) {
+			if ( gform.domLoaded && gform.scriptsLoaded ) {
+				fn();
+			} else if( ! gform.domLoaded && gform.scriptsLoaded ) {
+				window.addEventListener( 'DOMContentLoaded', fn );
+			} else {
+				document.addEventListener( 'gform_main_scripts_loaded', fn );
+			}
+		},
+		hooks: { action: {}, filter: {} },
+		addAction: function( action, callable, priority, tag ) {
+			gform.addHook( 'action', action, callable, priority, tag );
+		},
+		addFilter: function( action, callable, priority, tag ) {
+			gform.addHook( 'filter', action, callable, priority, tag );
+		},
+		doAction: function( action ) {
+			gform.doHook( 'action', action, arguments );
+		},
+		applyFilters: function( action ) {
+			return gform.doHook( 'filter', action, arguments );
+		},
+		removeAction: function( action, tag ) {
+			gform.removeHook( 'action', action, tag );
+		},
+		removeFilter: function( action, priority, tag ) {
+			gform.removeHook( 'filter', action, priority, tag );
+		},
+		addHook: function( hookType, action, callable, priority, tag ) {
+			if ( undefined == gform.hooks[hookType][action] ) {
+				gform.hooks[hookType][action] = [];
+			}
+			var hooks = gform.hooks[hookType][action];
+			if ( undefined == tag ) {
+				tag = action + '_' + hooks.length;
+			}
+			if( priority == undefined ){
+				priority = 10;
+			}
+
+			gform.hooks[hookType][action].push( { tag:tag, callable:callable, priority:priority } );
+		},
+		doHook: function( hookType, action, args ) {
+
+			// splice args from object into array and remove first index which is the hook name
+			args = Array.prototype.slice.call(args, 1);
+
+			if ( undefined != gform.hooks[hookType][action] ) {
+				var hooks = gform.hooks[hookType][action], hook;
+				//sort by priority
+				hooks.sort(function(a,b){return a["priority"]-b["priority"]});
+
+				hooks.forEach( function( hookItem ) {
+					hook = hookItem.callable;
+
+					if(typeof hook != 'function')
+						hook = window[hook];
+					if ( 'action' == hookType ) {
+						hook.apply(null, args);
+					} else {
+						args[0] = hook.apply(null, args);
+					}
+				} );
+			}
+			if ( 'filter'==hookType ) {
+				return args[0];
+			}
+		},
+		removeHook: function( hookType, action, priority, tag ) {
+			if ( undefined != gform.hooks[hookType][action] ) {
+				var hooks = gform.hooks[hookType][action];
+				hooks = hooks.filter( function(hook, index, arr) {
+					var removeHook = (undefined==tag||tag==hook.tag) && (undefined==priority||priority==hook.priority);
+					return !removeHook;
+				} );
+				gform.hooks[hookType][action] = hooks;
+			}
+		}
+	};
+}
+</script>
+
+
+    <title>Newsletter | Nomad Travel</title>
+
+        <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="apple-touch-icon" href="https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/images/apple-icon-touch.png">
+    <!-- <link rel="icon" href="https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/favicon.png?v=2"> -->
+    <!--[if IE]>
+			<link rel="shortcut icon" href="https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/favicon.ico">
+		<![endif]-->
+        <meta name="msapplication-TileColor" content="#f01d4f">
+    <meta name="msapplication-TileImage" content="https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/images/win8-tile-icon.png">
+
+    <link rel="pingback" href="https://www.nomadtravel.co.uk/xmlrpc.php">
+
+        <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create','UA-52516192-1', 'auto');
+ga('send', 'pageview');
+</script>
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v19.4 - https://yoast.com/wordpress/plugins/seo/ -->
+	<meta name="description" content="Sign up to the Nomad Travel newsletter to receive updates on the latest kit for your travel and deals in the Nomad Travel Store" />
+	<link rel="canonical" href="https://www.nomadtravel.co.uk/newsletter" />
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Newsletter | Nomad Travel" />
+	<meta property="og:description" content="Sign up to the Nomad Travel newsletter to receive updates on the latest kit for your travel and deals in the Nomad Travel Store" />
+	<meta property="og:url" content="https://www.nomadtravel.co.uk/newsletter" />
+	<meta property="og:site_name" content="Nomad" />
+	<meta property="article:modified_time" content="2018-03-08T17:21:14+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Estimated reading time" />
+	<meta name="twitter:data1" content="1 minute" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.nomadtravel.co.uk/#organization","name":"Nomad","url":"https://www.nomadtravel.co.uk/","sameAs":[],"logo":{"@type":"ImageObject","inLanguage":"en-GB","@id":"https://www.nomadtravel.co.uk/#/schema/logo/image/","url":"https://www.nomadtravel.co.uk/wp-content/uploads/2017/02/Nomad-Email-Logo-Outlook.png","contentUrl":"https://www.nomadtravel.co.uk/wp-content/uploads/2017/02/Nomad-Email-Logo-Outlook.png","width":162,"height":53,"caption":"Nomad"},"image":{"@id":"https://www.nomadtravel.co.uk/#/schema/logo/image/"}},{"@type":"WebSite","@id":"https://www.nomadtravel.co.uk/#website","url":"https://www.nomadtravel.co.uk/","name":"Nomad","description":"Travel Clinic, Pharmacy &amp; Travel Accessories Store","publisher":{"@id":"https://www.nomadtravel.co.uk/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.nomadtravel.co.uk/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-GB"},{"@type":"WebPage","@id":"https://www.nomadtravel.co.uk/newsletter","url":"https://www.nomadtravel.co.uk/newsletter","name":"Newsletter | Nomad Travel","isPartOf":{"@id":"https://www.nomadtravel.co.uk/#website"},"datePublished":"2017-02-16T15:01:52+00:00","dateModified":"2018-03-08T17:21:14+00:00","description":"Sign up to the Nomad Travel newsletter to receive updates on the latest kit for your travel and deals in the Nomad Travel Store","breadcrumb":{"@id":"https://www.nomadtravel.co.uk/newsletter#breadcrumb"},"inLanguage":"en-GB","potentialAction":[{"@type":"ReadAction","target":["https://www.nomadtravel.co.uk/newsletter"]}]},{"@type":"BreadcrumbList","@id":"https://www.nomadtravel.co.uk/newsletter#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.nomadtravel.co.uk/"},{"@type":"ListItem","position":2,"name":"Newsletter"}]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//cc.cdn.civiccomputing.com' />
+<link rel='dns-prefetch' href='//www.formstack.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Nomad &raquo; Feed" href="https://www.nomadtravel.co.uk/feed" />
+<link rel="alternate" type="application/rss+xml" title="Nomad &raquo; Comments Feed" href="https://www.nomadtravel.co.uk/comments/feed" />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/www.nomadtravel.co.uk\/wp-includes\/js\/wp-emoji.js","twemoji":"https:\/\/www.nomadtravel.co.uk\/wp-includes\/js\/twemoji.js"}};
+/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for Transgender flag compatibility. This flag is shortlisted for the Emoji 13 spec,
+				 * but has landed in Twemoji early, so we can add support for it, too.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (white flag emoji + transgender symbol).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F ],
+					[ 0x1F3F3, 0xFE0F, 0x200B, 0x26A7, 0xFE0F ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Why can't we be friends? Everyone can now shake hands in emoji, regardless of skin tone!
+				 *
+				 * To test for Emoji 14.0 support, try to render a new emoji: Handshake: Light Skin Tone, Dark Skin Tone.
+				 *
+				 * The Handshake: Light Skin Tone, Dark Skin Tone emoji is a ZWJ sequence combining 🫱 Rightwards Hand,
+				 * 🏻 Light Skin Tone, a Zero Width Joiner, 🫲 Leftwards Hand, and 🏿 Dark Skin Tone.
+				 *
+				 * 0x1FAF1 == Rightwards Hand
+				 * 0x1F3FB == Light Skin Tone
+				 * 0x200D == Zero-Width Joiner (ZWJ) that links the code points for the new emoji or
+				 * 0x200B == Zero-Width Space (ZWS) that is rendered for clients not supporting the new emoji.
+				 * 0x1FAF2 == Leftwards Hand
+				 * 0x1F3FF == Dark Skin Tone.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0x1FAF1, 0x1F3FB, 0x200D, 0x1FAF2, 0x1F3FF],
+					[0x1FAF1, 0x1F3FB, 0x200B, 0x1FAF2, 0x1F3FF]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.nomadtravel.co.uk/wp-includes/css/dist/block-library/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-blocks-vendors-style-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-blocks-style-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='yith-wcan-shortcodes-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/yith-woocommerce-ajax-navigation/assets/css/shortcodes.css' type='text/css' media='all' />
+<style id='yith-wcan-shortcodes-inline-css' type='text/css'>
+:root{
+	--yith-wcan-filters_colors_titles: #434343;
+	--yith-wcan-filters_colors_background: #FFFFFF;
+	--yith-wcan-filters_colors_accent: #A7144C;
+	--yith-wcan-filters_colors_accent_r: 167;
+	--yith-wcan-filters_colors_accent_g: 20;
+	--yith-wcan-filters_colors_accent_b: 76;
+	--yith-wcan-color_swatches_border_radius: 100%;
+	--yith-wcan-color_swatches_size: 30px;
+	--yith-wcan-labels_style_background: #FFFFFF;
+	--yith-wcan-labels_style_background_hover: #A7144C;
+	--yith-wcan-labels_style_background_active: #A7144C;
+	--yith-wcan-labels_style_text: #434343;
+	--yith-wcan-labels_style_text_hover: #FFFFFF;
+	--yith-wcan-labels_style_text_active: #FFFFFF;
+	--yith-wcan-anchors_style_text: #434343;
+	--yith-wcan-anchors_style_text_hover: #A7144C;
+	--yith-wcan-anchors_style_text_active: #A7144C;
+}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='nomad-pikaday-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/cream-woo-nomad-checkout/js/pikaday.css' type='text/css' media='all' />
+<link rel='stylesheet' id='nomad-pikaday-theme-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/cream-woo-nomad-checkout/js/theme.css' type='text/css' media='all' />
+<link rel='stylesheet' id='fancybox-for-wp-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/fancybox-for-wordpress/assets/css/fancybox.css' type='text/css' media='all' />
+<link rel='stylesheet' id='formstack-css-css'  href='//www.formstack.com/forms/css/2/wordpress-post.css' type='text/css' media='all' />
+<link rel='stylesheet' id='simple-banner-style-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/simple-banner/simple-banner.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bonfire-taptap-css-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/taptap-by-bonfire/taptap.css' type='text/css' media='all' />
+<link rel='stylesheet' id='taptap-fonts-css'  href='//fonts.googleapis.com/css?family=Montserrat%3A400%2C700%7CVarela+Round%7CHind+Siliguri%3A400%2C600%7CDosis%3A600%7CRoboto%3A100%2C400%7CRoboto+Condensed%3A400%2C700%7CBree+Serif%7CDroid+Serif%3A400' type='text/css' media='all' />
+<link rel='stylesheet' id='taptap-fontawesome-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/taptap-by-bonfire/fonts/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='woo-coupon-url-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/woo-coupon-url/public/css/woo-coupon-url-public.css' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce-layout-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
+<link rel='stylesheet' id='woocommerce-general-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/assets/css/woocommerce.css' type='text/css' media='all' />
+<style id='woocommerce-inline-inline-css' type='text/css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel='stylesheet' id='wcqi-css-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce-quantity-increment/assets/css/wc-quantity-increment.css' type='text/css' media='all' />
+<link rel='stylesheet' id='woo_conditional_shipping_css-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/conditional-shipping-for-woocommerce/includes/frontend/../../frontend/css/woo-conditional-shipping.css' type='text/css' media='all' />
+<link rel='stylesheet' id='slick-style-css'  href='https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/slick/slick.css' type='text/css' media='all' />
+<link rel='stylesheet' id='slick-theme-css'  href='https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/slick/slick-theme.css' type='text/css' media='all' />
+<link rel='stylesheet' id='vc_plugin_table_style_css-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/easy-tables-vc/assets/css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='vc_plugin_themes_css-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/easy-tables-vc/assets/css/themes.css' type='text/css' media='all' />
+<link rel='stylesheet' id='js_composer_front-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/js_composer/assets/css/js_composer.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='gforms_reset_css-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/gravityforms/legacy/css/formreset.css' type='text/css' media='all' />
+<link rel='stylesheet' id='gforms_formsmain_css-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/gravityforms/legacy/css/formsmain.css' type='text/css' media='all' />
+<link rel='stylesheet' id='gforms_ready_class_css-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/gravityforms/legacy/css/readyclass.css' type='text/css' media='all' />
+<link rel='stylesheet' id='gforms_browsers_css-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/gravityforms/legacy/css/browsers.css' type='text/css' media='all' />
+<link rel='stylesheet' id='woo-wallet-style-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/woo-wallet/assets/css/frontend.css' type='text/css' media='all' />
+<link rel='stylesheet' id='ubermenu-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/ubermenu/pro/assets/css/ubermenu.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='ubermenu-black-white-2-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/ubermenu/assets/css/skins/blackwhite2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='ubermenu-font-awesome-all-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/ubermenu/assets/fontawesome/css/all.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='woo_discount_pro_style-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/woo-discount-rules-pro/Assets/Css/awdr_style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bones-stylesheet-css'  href='https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/css/style.css' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='bones-ie-only-css'  href='https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/css/ie.css' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-includes/js/jquery/jquery.js' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-includes/js/jquery/jquery-migrate.js' id='jquery-migrate-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/cream-woo-nomad-checkout/js/moment-2.27.0.js' id='nomad-moment-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/cream-woo-nomad-checkout/js/pikaday.js' id='nomad-pikaday-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/cream-woo-nomad-checkout/js/init.js' id='nomad-conditional-init-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/fancybox-for-wordpress/assets/js/jquery.fancybox.js' id='fancybox-for-wp-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/revslider/public/assets/js/rbtools.min.js' async id='tp-tools-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/revslider/public/assets/js/rs6.min.js' async id='revmin-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/simple-banner/simple-banner.js' id='simple-banner-script-js'></script>
+<script type='text/javascript' id='simple-banner-script-js-after'>
+const simpleBannerScriptParams = {"version":"2.12.0","hide_simple_banner":"yes","simple_banner_position":"","header_margin":"","header_padding":"","simple_banner_text":"CHRISTMAS PCR TESTING AND DELIVERY DATES<\/br>Home delivery Express Fit-To-Fly PCR self-test orders will not be processed between 12pm midday on 20th of December 2021 - 29th December 2021 and between 12pm midday on 31st of December 2021 - 4th January 2022<\/br>Pharmacy orders placed after 2pm on 20th of December 2021 will be dispatched on 4th January 2022","pro_version_enabled":"","disabled_on_current_page":false,"debug_mode":"","id":5527,"disabled_pages_array":[],"is_current_page_a_post":false,"disabled_on_posts":"","simple_banner_font_size":"","simple_banner_color":"#d10015","simple_banner_text_color":"#ffffff","simple_banner_link_color":"#ffffff","simple_banner_close_color":"","simple_banner_custom_css":"","simple_banner_scrolling_custom_css":"","simple_banner_text_custom_css":"","simple_banner_button_css":"","site_custom_css":"","keep_site_custom_css":"","site_custom_js":"","keep_site_custom_js":"","wp_body_open_enabled":"","wp_body_open":true,"close_button_enabled":"","close_button_expiration":"","close_button_cookie_set":false}
+</script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/taptap-by-bonfire/taptap-accordion.js' id='bonfire-taptap-accordion-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woo-coupon-url/public/js/woo-coupon-url-public.js' id='woo-coupon-url-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.js' id='jquery-blockui-js'></script>
+<script type='text/javascript' id='wc-add-to-cart-js-extra'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View basket","cart_url":"https:\/\/www.nomadtravel.co.uk\/basket","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.js' id='wc-add-to-cart-js'></script>
+<script type='text/javascript' id='ga_events_main_script-js-extra'>
+/* <![CDATA[ */
+var ga_options = {"anonymizeip":"","advanced":"","snippet_type":"universal","tracking_id":"UA-52516192-1","gtm_id":"","domain":"","click_elements":[{"name":"CQCWidget-1-2923507915-1","type":"id","category":"cqc","action":"click","label":"bath report","value":"","bounce":"false"},{"name":"CQCWidget-1-2923508133-1","type":"id","category":"cqc","action":"click","label":"birmingham","value":"","bounce":"false"},{"name":"CQCWidget-1-2922792200-1","type":"id","category":"cqc","action":"click","label":"bristol report","value":"","bounce":"false"},{"name":"custom_html-2","type":"id","category":"cqc","action":"click","label":"general info","value":"","bounce":"false"}],"scroll_elements":[],"link_clicks_delay":"120","download_tracking_type":["pdf","mp3","pptx","docx"],"force_snippet":"none"};
+var gaePlaceholders = {"is_front_page":"","page_title":"Newsletter"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/wp-google-analytics-events/js/main.js' id='ga_events_main_script-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce-quantity-increment/assets/js/wc-quantity-increment.js' id='wcqi-js-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js' id='vc_woocommerce-add-to-cart-js-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.js' id='jquery-cookie-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/conditional-shipping-for-woocommerce/includes/frontend/../../frontend/js/woo-conditional-shipping.js' id='woo-conditional-shipping-js-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce-quantity-increment/assets/js/lib/number-polyfill.min.js' id='wcqi-number-polyfill-js'></script>
+<script type='text/javascript' defer='defer' src='https://www.nomadtravel.co.uk/wp-content/plugins/gravityforms/js/jquery.json.js' id='gform_json-js'></script>
+<script type='text/javascript' id='gform_gravityforms-js-extra'>
+/* <![CDATA[ */
+var gf_global = {"gf_currency_config":{"name":"Pound Sterling","symbol_left":"&#163;","symbol_right":"","symbol_padding":" ","thousand_separator":",","decimal_separator":".","decimals":2,"code":"GBP"},"base_url":"https:\/\/www.nomadtravel.co.uk\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"https:\/\/www.nomadtravel.co.uk\/wp-content\/plugins\/gravityforms\/images\/spinner.svg","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
+var gform_i18n = {"datepicker":{"days":{"monday":"Mon","tuesday":"Tue","wednesday":"Wed","thursday":"Thu","friday":"Fri","saturday":"Sat","sunday":"Sun"},"months":{"january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December"},"firstDay":0,"iconText":"Select date"}};
+var gf_legacy_multi = {"24":"1"};
+var gform_gravityforms = {"strings":{"invalid_file_extension":"This type of file is not allowed. Must be one of the following:","delete_file":"Delete this file","in_progress":"in progress","file_exceeds_limit":"File exceeds size limit","illegal_extension":"This type of file is not allowed.","max_reached":"Maximum number of files reached","unknown_error":"There was a problem while saving the file on the server","currently_uploading":"Please wait for the uploading to complete","cancel":"Cancel","cancel_upload":"Cancel this upload","cancelled":"Cancelled"},"vars":{"images_url":"https:\/\/www.nomadtravel.co.uk\/wp-content\/plugins\/gravityforms\/images"}};
+/* ]]> */
+</script>
+<script type='text/javascript' id='gform_gravityforms-js-before'></script>
+<script type='text/javascript' defer='defer' src='https://www.nomadtravel.co.uk/wp-content/plugins/gravityforms/js/gravityforms.js' id='gform_gravityforms-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/js/libs/modernizr.custom.min.js' id='bones-modernizr-js'></script>
+<link rel="https://api.w.org/" href="https://www.nomadtravel.co.uk/wp-json/" /><link rel="alternate" type="application/json" href="https://www.nomadtravel.co.uk/wp-json/wp/v2/pages/5527" /><link rel='shortlink' href='https://www.nomadtravel.co.uk/?p=5527' />
+<link rel="alternate" type="application/json+oembed" href="https://www.nomadtravel.co.uk/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.nomadtravel.co.uk%2Fnewsletter" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.nomadtravel.co.uk/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.nomadtravel.co.uk%2Fnewsletter&#038;format=xml" />
+
+<!-- Fancybox for WordPress v3.3.3 -->
+<style type="text/css">
+	.fancybox-slide--image .fancybox-content{background-color: #FFFFFF}div.fancybox-caption{display:none !important;}
+	
+	img.fancybox-image{border-width:10px;border-color:#FFFFFF;border-style:solid;}
+	div.fancybox-bg{background-color:rgba(102,102,102,0.3);opacity:1 !important;}div.fancybox-content{border-color:#FFFFFF}
+	div#fancybox-title{background-color:#FFFFFF}
+	div.fancybox-content{background-color:#FFFFFF}
+	div#fancybox-title-inside{color:#333333}
+	
+	
+	
+	div.fancybox-caption p.caption-title{display:inline-block}
+	div.fancybox-caption p.caption-title{font-size:14px}
+	div.fancybox-caption p.caption-title{color:#333333}
+	div.fancybox-caption {color:#333333}div.fancybox-caption p.caption-title {background:#fff; width:auto;padding:10px 30px;}div.fancybox-content p.caption-title{color:#333333;margin: 0;padding: 5px 0;}body.fancybox-active .fancybox-container .fancybox-stage .fancybox-content .fancybox-close-small{display:block;}
+</style><script type="text/javascript">
+	jQuery(function () {
+
+		var mobileOnly = false;
+		
+		if (mobileOnly) {
+			return;
+		}
+
+		jQuery.fn.getTitle = function () { // Copy the title of every IMG tag and add it to its parent A so that fancybox can show titles
+			var arr = jQuery("a[data-fancybox]");
+									jQuery.each(arr, function() {
+										var title = jQuery(this).children("img").attr("title");
+										 var caption = jQuery(this).next("figcaption").html();
+                                        if(caption && title){jQuery(this).attr("title",title+" " + caption)}else if(title){ jQuery(this).attr("title",title);}else if(caption){jQuery(this).attr("title",caption);}
+									});			}
+
+		// Supported file extensions
+
+				var thumbnails = jQuery("a:has(img)").not(".nolightbox").not('.envira-gallery-link').not('.ngg-simplelightbox').filter(function () {
+			return /\.(jpe?g|png|gif|mp4|webp|bmp|pdf)(\?[^/]*)*$/i.test(jQuery(this).attr('href'))
+		});
+		
+
+		// Add data-type iframe for links that are not images or videos.
+		var iframeLinks = jQuery('.fancyboxforwp').filter(function () {
+			return !/\.(jpe?g|png|gif|mp4|webp|bmp|pdf)(\?[^/]*)*$/i.test(jQuery(this).attr('href'))
+		}).filter(function () {
+			return !/vimeo|youtube/i.test(jQuery(this).attr('href'))
+		});
+		iframeLinks.attr({"data-type": "iframe"}).getTitle();
+
+				// Gallery All
+		thumbnails.addClass("fancyboxforwp").attr("data-fancybox", "gallery").getTitle();
+		iframeLinks.attr({"data-fancybox": "gallery"}).getTitle();
+
+		// Gallery type NONE
+		
+		// Call fancybox and apply it on any link with a rel atribute that starts with "fancybox", with the options set on the admin panel
+		jQuery("a.fancyboxforwp").fancyboxforwp({
+			loop: true,
+			smallBtn: true,
+			zoomOpacity: "auto",
+			animationEffect: "fade",
+			animationDuration: 500,
+			transitionEffect: "fade",
+			transitionDuration: "300",
+			overlayShow: true,
+			overlayOpacity: "0.3",
+			titleShow: true,
+			titlePosition: "inside",
+			keyboard: true,
+			showCloseButton: true,
+			arrows: true,
+			clickContent:false,
+			clickSlide: "close",
+			mobile: {
+				clickContent: function (current, event) {
+					return current.type === "image" ? "toggleControls" : false;
+				},
+				clickSlide: function (current, event) {
+					return current.type === "image" ? "close" : "close";
+				},
+			},
+			wheel: false,
+			toolbar: true,
+			preventCaptionOverlap: true,
+			onInit: function() { },			onDeactivate
+	: function() { },		beforeClose: function() { },			afterShow: function(instance) { jQuery( ".fancybox-image" ).on("click", function( ){ ( instance.isScaledDown() ) ? instance.scaleToActual() : instance.scaleToFit() }) },				afterClose: function() { },					caption : function( instance, item ) {var title ="";if("undefined" != typeof jQuery(this).context ){var title = jQuery(this).context.title;} else { var title = ("undefined" != typeof jQuery(this).attr("title")) ? jQuery(this).attr("title") : false;}var caption = jQuery(this).data('caption') || '';if ( item.type === 'image' && title.length ) {caption = (caption.length ? caption + '<br />' : '') + '<p class="caption-title">'+title+'</p>' ;}return caption;},
+		afterLoad : function( instance, current ) {current.$content.append('<div class=\"fancybox-custom-caption inside-caption\" style=\" position: absolute;left:0;right:0;color:#000;margin:0 auto;bottom:0;text-align:center;background-color:#FFFFFF \">' + current.opts.caption + '</div>');},
+			})
+		;
+
+			})
+</script>
+<!-- END Fancybox for WordPress -->
+
+
+<!-- This site is optimized with the Schema plugin v1.7.9.4 - https://schema.press -->
+<script type="application/ld+json">[{"@context":"http:\/\/schema.org\/","@type":"WPHeader","url":"https:\/\/www.nomadtravel.co.uk\/newsletter","headline":"Newsletter","description":"Here at Nomad, we've been kitting out travellers for over 25 years, ensuring they have all the medical..."},{"@context":"http:\/\/schema.org\/","@type":"WPFooter","url":"https:\/\/www.nomadtravel.co.uk\/newsletter","headline":"Newsletter","description":"Here at Nomad, we've been kitting out travellers for over 25 years, ensuring they have all the medical...","copyrightYear":"2017"}]</script>
+
+
+
+<!-- This site is optimized with the Schema plugin v1.7.9.4 - https://schema.press -->
+<script type="application/ld+json">{"@context":"https:\/\/schema.org\/","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.nomadtravel.co.uk\/newsletter"},"url":"https:\/\/www.nomadtravel.co.uk\/newsletter","headline":"Newsletter","datePublished":"2017-02-16T15:01:52+00:00","dateModified":"2018-03-08T17:21:14+00:00","publisher":{"@type":"Organization","@id":"https:\/\/www.nomadtravel.co.uk\/#organization","name":"Nomad","logo":{"@type":"ImageObject","url":"https:\/\/www.nomadtravel.co.uk\/wp-content\/uploads\/2017\/04\/job-logo.png","width":600,"height":60}},"description":"Here at Nomad, we've been kitting out travellers for over 25 years, ensuring they have all the medical suppplies and travel kit to stay healthy and enjoy every moment of their trip. We'd love to be able to share our travel expertise with you, so join more than 36,000","author":{"@type":"Person","name":"Heather Clifford","url":"https:\/\/www.nomadtravel.co.uk\/blog\/author\/nomad","image":{"@type":"ImageObject","url":"https:\/\/secure.gravatar.com\/avatar\/0d9773205cc53d103899384a3a03e5ff?s=96&d=mm&r=g","height":96,"width":96}}}</script>
+
+<style type="text/css">.simple-banner{display:none;}</style><style type="text/css">.simple-banner{background:#d10015;}</style><style type="text/css">.simple-banner .simple-banner-text{color:#ffffff;}</style><style type="text/css">.simple-banner .simple-banner-text a{color:#ffffff;}</style><style id="simple-banner-site-custom-css-dummy" type="text/css"></style><script id="simple-banner-site-custom-js-dummy" type="text/javascript"></script><!-- Stream WordPress user activity plugin v3.9.0 -->
+
+		<!-- BEGIN CUSTOM COLORS (WP THEME CUSTOMIZER) -->
+		<style>
+		/**************************************************************
+		*** CUSTOM COLORS + SETTINGS
+		**************************************************************/
+        /* show hovers on non-touch devices only */
+		        /* menu label hover */
+        .taptap-menu-button-wrapper:hover .taptap-menu-button-label { color:; }
+        /* logo hover */
+        .taptap-logo a:hover { color:; }
+        /* serach label hover */
+        .taptap-search-button-wrapper:hover .taptap-search-button-label { color:; }
+        /* search button hover*/
+        .taptap-search-button-wrapper:hover .taptap-search-button { border-color:#ddd; }
+        .taptap-search-button-wrapper:hover .taptap-search-button::after { background-color:#ddd; }
+        /* search close button hover */
+		.taptap-search-close-wrapper:hover .taptap-search-close-inner::before,
+        .taptap-search-close-wrapper:hover .taptap-search-close-inner::after { background-color:#ddd; }
+        /* search clear field button hover */
+		.taptap-search-clear-wrapper:hover .taptap-search-clear { background-color:#666; }
+        /* current menu item hover */
+        .taptap-by-bonfire ul li.current-menu-item.full-item-arrow-hover > a,
+        .taptap-by-bonfire ul li.current-menu-item > a:hover { color:#068cda; }
+        /* current submenu item hover */
+        .taptap-by-bonfire .sub-menu .current-menu-item.full-item-arrow-hover > a,
+        .taptap-by-bonfire .sub-menu .current-menu-item > a:hover { color:#068cda; }
+        /* menu item icon hover */
+        .taptap-by-bonfire ul li a:hover i,
+        .taptap-by-bonfire ul li.full-item-arrow-hover a i { color:; }
+        /* submenu item icon hover */
+		.taptap-by-bonfire .sub-menu a:hover i,
+        .taptap-by-bonfire .sub-menu .full-item-arrow-hover a i { color:; }
+        /* menu item hovers */
+        .taptap-by-bonfire ul li.full-item-arrow-hover > a,
+		.taptap-by-bonfire ul li a:hover { color:#ffffff; }
+        .taptap-by-bonfire ul.sub-menu li.full-item-arrow-hover > a,
+        .taptap-by-bonfire ul.sub-menu li a:hover { color:#068cda; }
+        /* submenu arrow hover */
+        .full-item-arrow-hover > .taptap-sub-arrow .taptap-sub-arrow-inner::before,
+        .full-item-arrow-hover > .taptap-sub-arrow .taptap-sub-arrow-inner::after,
+        .taptap-sub-arrow:hover .taptap-sub-arrow-inner::before,
+        .taptap-sub-arrow:hover .taptap-sub-arrow-inner::after { background-color:#068cda; }
+        /* menu button hover */
+		.taptap-menu-button-wrapper:hover .taptap-main-menu-button:before,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button div.taptap-main-menu-button-middle:before,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button:after,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-two:before,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-two div.taptap-main-menu-button-two-middle:before,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-two:after,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-three:before,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-three div.taptap-main-menu-button-three-middle:before,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-three:after,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-four:before,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-four div.taptap-main-menu-button-four-middle:before,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-four:after,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-five:before,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-five div.taptap-main-menu-button-five-middle:before,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-five:after,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-six:before,
+        .taptap-menu-button-wrapper:hover .taptap-main-menu-button-six:after {
+			background-color:#009dd8;
+		}
+		/* menu bars hover (if menu opened) */
+        .taptap-menu-active:hover .taptap-main-menu-button:before,
+        .taptap-menu-active:hover .taptap-main-menu-button div.taptap-main-menu-button-middle:before,
+        .taptap-menu-active:hover .taptap-main-menu-button:after,
+        .taptap-menu-active:hover .taptap-main-menu-button-two:before,
+        .taptap-menu-active:hover .taptap-main-menu-button-two div.taptap-main-menu-button-two-middle:before,
+        .taptap-menu-active:hover .taptap-main-menu-button-two:after,
+        .taptap-menu-active:hover .taptap-main-menu-button-three:before,
+        .taptap-menu-active:hover .taptap-main-menu-button-three div.taptap-main-menu-button-three-middle:before,
+        .taptap-menu-active:hover .taptap-main-menu-button-three:after,
+        .taptap-menu-active:hover .taptap-main-menu-button-four:before,
+        .taptap-menu-active:hover .taptap-main-menu-button-four div.taptap-main-menu-button-four-middle:before,
+        .taptap-menu-active:hover .taptap-main-menu-button-four:after,
+        .taptap-menu-active:hover .taptap-main-menu-button-five:before,
+        .taptap-menu-active:hover .taptap-main-menu-button-five div.taptap-main-menu-button-five-middle:before,
+        .taptap-menu-active:hover .taptap-main-menu-button-five:after,
+        .taptap-menu-active:hover .taptap-main-menu-button-six:before,
+        .taptap-menu-active:hover .taptap-main-menu-button-six:after {
+			background-color:;
+		}        
+                
+        /* MENU BUTTON */
+		/* menu button opacity */
+		.taptap-menu-button-wrapper { opacity:; }
+		/* menu button */
+		.taptap-main-menu-button:before,
+		.taptap-main-menu-button div.taptap-main-menu-button-middle:before,
+        .taptap-main-menu-button:after,
+        .taptap-main-menu-button-two:before,
+		.taptap-main-menu-button-two div.taptap-main-menu-button-two-middle:before,
+        .taptap-main-menu-button-two:after,
+        .taptap-main-menu-button-three:before,
+		.taptap-main-menu-button-three div.taptap-main-menu-button-three-middle:before,
+        .taptap-main-menu-button-three:after,
+        .taptap-main-menu-button-four:before,
+		.taptap-main-menu-button-four div.taptap-main-menu-button-four-middle:before,
+        .taptap-main-menu-button-four:after,
+        .taptap-main-menu-button-five:before,
+		.taptap-main-menu-button-five div.taptap-main-menu-button-five-middle:before,
+        .taptap-main-menu-button-five:after,
+        .taptap-main-menu-button-six:before,
+        .taptap-main-menu-button-six:after {
+            background-color:#d3d3d3;
+                    }
+		/* menu button (if menu opened) */
+        .taptap-menu-active .taptap-main-menu-button:before,
+		.taptap-menu-active .taptap-main-menu-button div.taptap-main-menu-button-middle:before,
+        .taptap-menu-active .taptap-main-menu-button:after,
+        .taptap-menu-active .taptap-main-menu-button-two:before,
+		.taptap-menu-active .taptap-main-menu-button-two div.taptap-main-menu-button-two-middle:before,
+        .taptap-menu-active .taptap-main-menu-button-two:after,
+        .taptap-menu-active .taptap-main-menu-button-three:before,
+		.taptap-menu-active .taptap-main-menu-button-three div.taptap-main-menu-button-three-middle:before,
+        .taptap-menu-active .taptap-main-menu-button-three:after,
+        .taptap-menu-active .taptap-main-menu-button-four:before,
+		.taptap-menu-active .taptap-main-menu-button-four div.taptap-main-menu-button-four-middle:before,
+        .taptap-menu-active .taptap-main-menu-button-four:after,
+        .taptap-menu-active .taptap-main-menu-button-five:before,
+		.taptap-menu-active .taptap-main-menu-button-five div.taptap-main-menu-button-five-middle:before,
+        .taptap-menu-active .taptap-main-menu-button-five:after,
+        .taptap-menu-active .taptap-main-menu-button-six:before,
+        .taptap-menu-active .taptap-main-menu-button-six:after { background-color:; }
+		/* menu button animations (-/X) */
+                /* X SIGN ANIMATION */
+            /* button style #1 top bar*/
+			.taptap-menu-active .taptap-main-menu-button:before {
+				transform:translateY(9px) rotate(45deg);
+				-moz-transform:translateY(9px) rotate(45deg);
+				-webkit-transform:translateY(9px) rotate(45deg);
+			}
+			/* button style #1 bottom bar*/
+			.taptap-menu-active .taptap-main-menu-button:after {
+				transform:translateY(-9px) rotate(-45deg);
+				-moz-transform:translateY(-9px) rotate(-45deg);
+				-webkit-transform:translateY(-9px) rotate(-45deg);
+			}
+			/* button style #1 middle bar*/
+			.taptap-menu-active div.taptap-main-menu-button-middle:before {
+				opacity:0;
+				pointer-events:none;
+				
+				-webkit-transform:translateX(-20px);
+				-moz-transform:translateX(-20px);
+				transform:translateX(-20px);
+				
+				-webkit-transition:all .25s ease, opacity .25s ease .025s;
+				-moz-transition:all .25s ease, opacity .25s ease .025s;
+				transition:all .25s ease, opacity .25s ease .025s;
+			}
+            /* button style #2 top bar*/
+			.taptap-menu-active .taptap-main-menu-button-two:before {
+				transform:translateY(9px) rotate(45deg);
+				-moz-transform:translateY(9px) rotate(45deg);
+				-webkit-transform:translateY(9px) rotate(45deg);
+			}
+            .taptap-menu-active .taptap-main-menu-button-two:hover:before { width:30px; }
+			/* button style #2 bottom bar*/
+			.taptap-menu-active .taptap-main-menu-button-two:after {
+                width:30px;
+                margin-left:0;
+				transform:translateY(-9px) rotate(-45deg);
+				-moz-transform:translateY(-9px) rotate(-45deg);
+				-webkit-transform:translateY(-9px) rotate(-45deg);
+			}
+			/* button style #2 middle bar*/
+			.taptap-menu-active div.taptap-main-menu-button-two-middle:before {
+				opacity:0;
+				pointer-events:none;
+				
+				-webkit-transform:translateX(-20px);
+				-moz-transform:translateX(-20px);
+				transform:translateX(-20px);
+				
+				-webkit-transition:all .25s ease, opacity .25s ease .025s;
+				-moz-transition:all .25s ease, opacity .25s ease .025s;
+				transition:all .25s ease, opacity .25s ease .025s;
+			}
+            /* button style #3 top bar*/
+			.taptap-menu-active .taptap-main-menu-button-three:before {
+				transform:translateY(9px) rotate(45deg);
+				-moz-transform:translateY(9px) rotate(45deg);
+				-webkit-transform:translateY(9px) rotate(45deg);
+			}
+			/* button style #3 bottom bar*/
+			.taptap-menu-active .taptap-main-menu-button-three:after {
+				transform:translateY(-9px) rotate(-45deg);
+				-moz-transform:translateY(-9px) rotate(-45deg);
+				-webkit-transform:translateY(-9px) rotate(-45deg);
+			}
+			/* button style #3 middle bar*/
+			.taptap-menu-active div.taptap-main-menu-button-three-middle:before {
+				opacity:0;
+				pointer-events:none;
+				
+				-webkit-transform:translateX(-20px);
+				-moz-transform:translateX(-20px);
+				transform:translateX(-20px);
+				
+				-webkit-transition:all .25s ease, opacity .25s ease .025s;
+				-moz-transition:all .25s ease, opacity .25s ease .025s;
+				transition:all .25s ease, opacity .25s ease .025s;
+			}
+            /* button style #4 top bar*/
+			.taptap-menu-active .taptap-main-menu-button-four:before {
+				transform:translateY(9px) rotate(45deg);
+				-moz-transform:translateY(9px) rotate(45deg);
+				-webkit-transform:translateY(9px) rotate(45deg);
+			}
+            .taptap-menu-active .taptap-main-menu-button-four:hover:before { width:25px; }
+			/* button style #4 bottom bar*/
+			.taptap-menu-active .taptap-main-menu-button-four:after {
+                width:25px;
+				transform:translateY(-9px) rotate(-45deg);
+				-moz-transform:translateY(-9px) rotate(-45deg);
+				-webkit-transform:translateY(-9px) rotate(-45deg);
+			}
+			/* button style #4 middle bar*/
+			.taptap-menu-active div.taptap-main-menu-button-four-middle:before {
+				opacity:0;
+				pointer-events:none;
+				
+				-webkit-transform:translateX(-20px);
+				-moz-transform:translateX(-20px);
+				transform:translateX(-20px);
+				
+				-webkit-transition:all .25s ease, opacity .25s ease .025s;
+				-moz-transition:all .25s ease, opacity .25s ease .025s;
+				transition:all .25s ease, opacity .25s ease .025s;
+			}
+            /* button style #5 top bar*/
+			.taptap-menu-active .taptap-main-menu-button-five:before {
+				transform:translateY(11px) rotate(45deg);
+				-moz-transform:translateY(11px) rotate(45deg);
+				-webkit-transform:translateY(11px) rotate(45deg);
+			}
+			/* button style #5 bottom bar*/
+			.taptap-menu-active .taptap-main-menu-button-five:after {
+				transform:translateY(-11px) rotate(-45deg);
+				-moz-transform:translateY(-11px) rotate(-45deg);
+				-webkit-transform:translateY(-11px) rotate(-45deg);
+			}
+			/* button style #5 middle bar*/
+			.taptap-menu-active div.taptap-main-menu-button-five-middle:before {
+				opacity:0;
+				pointer-events:none;
+				
+				-webkit-transform:translateX(-20px);
+				-moz-transform:translateX(-20px);
+				transform:translateX(-20px);
+				
+				-webkit-transition:all .25s ease, opacity .25s ease .025s;
+				-moz-transition:all .25s ease, opacity .25s ease .025s;
+				transition:all .25s ease, opacity .25s ease .025s;
+			}
+            /* button style #6 top bar*/
+			.taptap-menu-active .taptap-main-menu-button-six:before {
+				transform:translateY(4px) rotate(45deg);
+				-moz-transform:translateY(4px) rotate(45deg);
+				-webkit-transform:translateY(4px) rotate(45deg);
+			}
+			/* button style #6 bottom bar*/
+			.taptap-menu-active .taptap-main-menu-button-six:after {
+				transform:translateY(-4px) rotate(-45deg);
+				-moz-transform:translateY(-4px) rotate(-45deg);
+				-webkit-transform:translateY(-4px) rotate(-45deg);
+			}
+        		/* menu button animation speed + logo/search hover speeds */
+        .taptap-menu-button-label,
+        .taptap-search-button-label,
+        .taptap-search-button,
+        .taptap-search-button::after,
+        .taptap-logo a,
+        .taptap-search-close-inner::before,
+        .taptap-search-close-inner::after,
+        .taptap-search-clear,
+		.taptap-main-menu-button:before,
+		.taptap-main-menu-button div.taptap-main-menu-button-middle:before,
+        .taptap-main-menu-button:after,
+        .taptap-main-menu-button-two:before,
+		.taptap-main-menu-button-two div.taptap-main-menu-button-two-middle:before,
+        .taptap-main-menu-button-two:after,
+        .taptap-main-menu-button-three:before,
+		.taptap-main-menu-button-three div.taptap-main-menu-button-three-middle:before,
+        .taptap-main-menu-button-three:after,
+        .taptap-main-menu-button-four:before,
+		.taptap-main-menu-button-four div.taptap-main-menu-button-four-middle:before,
+        .taptap-main-menu-button-four:after,
+        .taptap-main-menu-button-five:before,
+		.taptap-main-menu-button-five div.taptap-main-menu-button-five-middle:before,
+        .taptap-main-menu-button-five:after,
+        .taptap-main-menu-button-six:before,
+        .taptap-main-menu-button-six:after {
+			-webkit-transition:all s ease !important;
+			-moz-transition:all s ease !important;
+			transition:all s ease !important;
+		}
+        /* menu button top, side distances + right position */
+        .taptap-menu-button-wrapper { top:px; }
+                    .taptap-menu-button-wrapper {
+                right:15px;
+                left:auto;
+            }
+                /* if menu button hidden, remove button height and set default label position to 0 */
+                /* menu button label customization */
+        .taptap-menu-button-label {
+            left:px;
+            top:px;
+            color:;
+            font-size:px;
+            letter-spacing:px;
+        }
+        /* menu button label font + theme font */
+        					        
+        /* LOGO */
+        /* logo font size + letter spacing */
+        .taptap-logo a {
+            color:;
+            font-size:px;
+            letter-spacing:px;
+        }
+        /* logo font + theme font */
+        					        /* logo image size + top/side distances + right positioning */
+        .taptap-logo-image img { max-height:px; }
+        .taptap-logo-wrapper { top:px; }
+                
+        /* SEARCH */
+        /* search button */
+        .taptap-search-button {
+            border-color:#ffffff;
+                                }
+        .taptap-search-button::after {
+            background-color:#ffffff;
+                    }
+        /* search button top, side distances + right position */
+        .taptap-search-button-wrapper { top:px; }
+                /* if search button hidden, remove button height and set default label position to 0 */
+                /* search button label customization */
+        .taptap-search-button-label {
+            left:px;
+            top:px;
+            color:;
+            font-size:px;
+            letter-spacing:px;
+        }
+        /* search button label font + theme font */
+        					        /* search form background + background color + animation speed */
+		.taptap-search-wrapper,
+        .taptap-search-background {
+            height:px;
+            
+            -webkit-transition:-webkit-transform s ease 0s, top 0s ease s;
+            -moz-transition:-moz-transform s ease 0s, top 0s ease s;
+            transition:transform s ease 0s, top 0s ease s;
+        }
+        .taptap-search-background {
+            opacity:;
+            background-color:;
+        }
+        .taptap-search-wrapper-active {
+            -webkit-transition:-webkit-transform s ease 0s, top 0s ease 0s !important;
+            -moz-transition:-moz-transform s ease 0s, top 0s ease 0s !important;
+            transition:transform s ease 0s, top 0s ease 0s !important;
+        }
+        .taptap-search-overlay {
+            background-color:;
+            -webkit-transition:opacity s ease 0s, top 0s ease s;
+            -moz-transition:opacity s ease 0s, top 0s ease s;
+            transition:opacity s ease 0s, top 0s ease s;
+        }
+        .taptap-search-overlay-active {
+            opacity:;
+            -webkit-transition:opacity s ease 0s, top 0s ease 0s;
+            -moz-transition:opacity s ease 0s, top 0s ease 0s;
+            transition:opacity s ease 0s, top 0s ease 0s;
+        }
+		/* search form placeholder */
+		#searchform input::-webkit-input-placeholder { font-size:px; color: !important; }
+		#searchform input:-moz-placeholder { font-size:px; color: !important; }
+		#searchform input::-moz-placeholder { font-size:px; color: !important; }
+		#searchform input:-ms-input-placeholder { font-size:px; color: !important; }
+		/* search form text color + align + padding if clear field hidden */
+		.taptap-search-wrapper #searchform input {
+            color:;
+            font-size:px;
+            letter-spacing:px;
+                                }
+        /* search field font */
+        							/* search form close button */
+		.taptap-search-close-inner::before,
+        .taptap-search-close-inner::after { background-color:; }
+        /* search clear field button */
+		.taptap-search-clear { background-color:; }
+        /* make search field X the same color as search field background */
+        .taptap-search-clear::before,
+        .taptap-search-clear::after { background-color:; }
+        
+        /* HEADER */
+        /* header height + background color */
+		.taptap-header {
+            height:px;
+            background-color:;
+            opacity:;
+        }
+        /* show header shadow */
+                
+        /* MENU CONTAINER */
+        /* background color */
+        .taptap-background-color {
+            opacity:.85;
+            background-color:#00476b;
+        }
+        /* pulsating background colors + speed */
+                .taptap-background-color {
+            animation-name:TapTapPulse;
+            animation-duration:10s;
+            animation-iteration-count:infinite;
+        }
+        @keyframes TapTapPulse {
+        0% { background-color:#00476b; }
+        33% { background-color:#004c72; }
+        66% { background-color:#0078a5; }
+        100 { background-color:#00476b; }
+        }
+                /* background image opacity + horizontal/vertical alignment */
+		.taptap-background-image {
+            opacity:;
+			background-position: left;
+		}
+        /* background pattern */
+                /* menu container top/bottom padding */
+		.taptap-main-inner-inner {
+            padding-top:px;
+            padding-bottom:px;
+            padding-left:px;
+            padding-right:px;
+        }
+        /* max content width */
+		.taptap-contents-wrapper {
+            max-width:px;
+        }
+        /* menu container appearance speed */
+        .taptap-main-wrapper {
+            -webkit-transition:-webkit-transform s ease, top 0s ease s, opacity s ease 0s;
+            -moz-transition:-moz-transform s ease, top 0s ease s, opacity s ease 0s;
+            transition:transform s ease, top 0s ease s, opacity s ease 0s;
+        }
+        .taptap-main-wrapper-active {
+            -webkit-transition:-webkit-transform s ease, top 0s ease 0s, opacity s ease 0s;
+            -moz-transition:-moz-transform s ease, top 0s ease 0s, opacity s ease 0s;
+            transition:transform s ease, top 0s ease 0s, opacity s ease 0s;
+        }
+        .taptap-background-color,
+        .taptap-background-image {
+            -webkit-transition:-webkit-transform s ease, top 0s ease s;
+            -moz-transition:-moz-transform s ease, top 0s ease s;
+            transition:transform s ease, top 0s ease s;
+        }
+        .taptap-background-color-active,
+        .taptap-background-image-active {
+            -webkit-transition:-webkit-transform s ease, top 0s ease 0s;
+            -moz-transition:-moz-transform s ease, top 0s ease 0s;
+            transition:transform s ease, top 0s ease 0s;
+        }
+        /* menu contents horizontal alignment */
+                    .taptap-contents-wrapper { margin:0 auto 0 0; }
+            .taptap-heading,
+			.taptap-subheading,
+			.taptap-image,
+			.taptap-by-bonfire ul li,
+			.taptap-widgets-wrapper .widget { text-align:left; }
+			.taptap-widgets-wrapper .widget div,
+			.taptap-widgets-wrapper .widget span,
+			.taptap-widgets-wrapper .widget iframe,
+			.taptap-widgets-wrapper .widget object,
+			.taptap-widgets-wrapper .widget embed {
+				margin-left:0;
+				margin-right:auto;
+			}
+        		/* menu contents vertical alignment */
+        		/* menu animations (top/left/right/bottom/fade) */
+        .taptap-main-wrapper {
+            -webkit-transform:translateY(-125%) scale(0.75);
+            -moz-transform:translateY(-125%) scale(0.75);
+            transform:translateY(-125%) scale(0.75);
+        }
+        .taptap-main-wrapper-active {
+            -webkit-transform:translateY(0) scale(1);
+            -moz-transform:translateY(0) scale(1);
+            transform:translateY(0) scale(1);
+        }
+                
+        /* BACKGROUND OVERLAY */
+        /* background overlay opacity + color + animation speed */
+		.taptap-background-overlay {
+            background-color:;
+            
+            -webkit-transition:opacity s ease, top 0s ease s;
+            -moz-transition:opacity s ease, top 0s ease s;
+            transition:opacity s ease, top 0s ease s;
+        }
+        .taptap-background-overlay-active {
+            opacity:;
+            
+            -webkit-transition:opacity s ease, top 0s ease 0s;
+            -moz-transition:opacity s ease, top 0s ease 0s;
+            transition:opacity s ease, top 0s ease 0s;
+        }
+        
+        /* HEADING + SUBHEADING */
+        /* headings */
+		.taptap-heading,
+		.taptap-heading a,
+		.taptap-heading a:hover { color:; }
+		.taptap-subheading,
+		.taptap-subheading a,
+		.taptap-subheading a:hover { color:; }
+        /* heading */
+		.taptap-heading,
+		.taptap-heading a {
+			font-size:px;
+			letter-spacing:px;
+			line-height:px;
+		}
+		/* subheading */
+        .taptap-subheading {
+			margin-top:px;
+		}
+		.taptap-subheading,
+		.taptap-subheading a {
+			font-size:px;
+			letter-spacing:px;
+			line-height:px;
+		}
+		/* heading font */
+        							
+		/* subheading font */
+							        
+        /* HEADING IMAGE */
+        .taptap-image {
+            margin-top:px;
+            margin-bottom:px;
+        }
+        .taptap-image img {
+            max-width:150px;
+        }
+        
+		/* MENUS */
+        /* menu */
+		.taptap-by-bonfire ul li a {
+            color:#ffffff;
+			font-size:px;
+			letter-spacing:px;
+            margin-top:px;
+		}
+        .taptap-by-bonfire > .menu > li.menu-item-has-children > span { margin-top:px; }
+		/* submenu */
+		.taptap-by-bonfire .sub-menu a {
+            color:#ffffff;
+			font-size:px;
+			letter-spacing:px;
+            margin-bottom:px;
+		}
+		/* drop-down arrow position (top-level) */
+		.taptap-by-bonfire > .menu > li.menu-item-has-children > span { top:px; }
+		/* drop-down arrow position (sub-level) */
+		.taptap-by-bonfire .sub-menu li.menu-item-has-children span { top:px; }
+        /* submenu arrow */
+        .taptap-sub-arrow .taptap-sub-arrow-inner::before,
+        .taptap-sub-arrow .taptap-sub-arrow-inner::after { background-color:#ffffff; }
+		.taptap-by-bonfire .menu li span { border-color:#ffffff; }
+        /* current menu items */
+        .taptap-by-bonfire ul li.current-menu-item > a { color:#068cda; }
+        .taptap-by-bonfire .sub-menu .current-menu-item > a { color:#068cda; }
+		/* menu font */
+                    		
+		/* MENU ITEM DESCRIPTIONS */
+		.taptap-menu-item-description {
+            color:;
+			font-size:px;
+			padding-top:px;
+			padding-bottom:px;
+			line-height:px;
+            letter-spacing:px;
+		}
+                    /* menu item description font */
+                    
+		/* MENU ITEM ICONS */
+		/* menu icons */
+        .taptap-by-bonfire ul li a i {
+			color:;
+			font-size:px;
+			margin-top:px;
+		}
+        /* submenu icons */
+		.taptap-by-bonfire .sub-menu a i {
+			color:;
+			font-size:px;
+			margin-top:px;
+		}
+
+        /* WIDGETS */
+		/* widget top distance */
+		.taptap-widgets-wrapper { margin-top:px; }
+		/* widget titles */
+		.taptap-widgets-wrapper .widget .widgettitle {
+			color:;
+			font-size:px;
+			letter-spacing:px;
+			line-height:px;
+		}
+		/* widget title font */
+        							/* widgets */
+		.taptap-widgets-wrapper .widget,
+		.taptap-widgets-wrapper .widget a {
+			color:;
+			font-size:px;
+			letter-spacing:px;
+			line-height:px;
+		}
+		.taptap-widgets-wrapper .widget a {
+			color:;
+		}
+		/* widget font */
+        					
+        /* STYLED SCROLLBAR */
+                /* show scrollbar styling, if scrollbar enabled */
+        
+        /* MISC */
+        /* show header + search when menu open */
+				.taptap-search-button-wrapper { z-index:999999; }
+        .taptap-logo-wrapper { z-index:999998; }
+        .taptap-header { z-index:999997; }
+		        /* push down site by height of menu */
+				/* if submenu arrow divider is hidden */
+        		/* hide taptap between resolutions */
+		@media ( min-width:720px) and (max-width:5000px) {
+			.taptap-menu-button-wrapper,
+			.taptap-logo-wrapper,
+			.taptap-header,
+			.taptap-background-color,
+			.taptap-background-image,
+            .taptap-background-overlay,
+			.taptap-main-wrapper,
+			.taptap-search-wrapper,
+			.taptap-search-button-wrapper { display:none; }
+			html { margin-top:0 !important; }
+		}
+		/* hide theme menu */
+        		</style>
+		<!-- END CUSTOM COLORS (WP THEME CUSTOMIZER) -->
+	
+	<style id="ubermenu-custom-generated-css">
+/** Font Awesome 4 Compatibility **/
+.fa{font-style:normal;font-variant:normal;font-weight:normal;font-family:FontAwesome;}
+
+/* Status: Loaded from Transient */
+
+</style><style type="text/css">dd ul.bulleted {  float:none;clear:both; }</style>		<script>
+			document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );
+		</script>
+				<style>
+			.no-js img.lazyload { display: none; }
+			figure.wp-block-image img.lazyloading { min-width: 150px; }
+							.lazyload, .lazyloading { opacity: 0; }
+				.lazyloaded {
+					opacity: 1;
+					transition: opacity 400ms;
+					transition-delay: 0ms;
+				}
+					</style>
+			<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://www.nomadtravel.co.uk/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="https://www.nomadtravel.co.uk/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 6.5.25 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<link rel="icon" href="https://www.nomadtravel.co.uk/wp-content/uploads/NomadIcon-email-logo.png" sizes="32x32" />
+<link rel="icon" href="https://www.nomadtravel.co.uk/wp-content/uploads/NomadIcon-email-logo.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.nomadtravel.co.uk/wp-content/uploads/NomadIcon-email-logo.png" />
+<meta name="msapplication-TileImage" content="https://www.nomadtravel.co.uk/wp-content/uploads/NomadIcon-email-logo.png" />
+<script>function setREVStartSize(e){
+			//window.requestAnimationFrame(function() {
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;
+				try {
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) || (e.l=="fullwidth" || e.layout=="fullwidth") ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);
+					if(e.layout==="fullscreen" || e.l==="fullscreen")
+						newh = Math.max(e.mh,window.RSIH);
+					else{
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+											
+						var nl = new Array(e.rl.length),
+							ix = 0,
+							sl;
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}
+					var el = document.getElementById(e.c);
+					if (el!==null && el) el.style.height = newh+"px";
+					el = document.getElementById(e.c+"_wrapper");
+					if (el!==null && el) {
+						el.style.height = newh+"px";
+						el.style.display = "block";
+					}
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}
+			//});
+		  };</script>
+		<style type="text/css" id="wp-custom-css">
+			.row-clinichead .menu-item-covid a {
+    background-color: #FFE003;
+    color: #000;
+}
+
+.row-clinichead .menu-item-covid a:hover {
+    color: #FFE003;
+    background-color: #000;
+}
+		</style>
+		<style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1498040112550{margin-top: -35px !important;margin-bottom: 0px !important;padding-bottom: 0px !important;background-color: #f1f1f1 !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}.vc_custom_1494002909900{margin-top: 25px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>    
+            <script type="text/javascript">
+        (function(a, e, c, f, g, h, b, d) {
+            var k = {
+                ak: "1037341085",
+                cl: "AwT9CMmeyn8QnaPS7gM",
+                autoreplace: "01341 555 061"
+            };
+            a[c] = a[c] || function() {
+                (a[c].q = a[c].q || []).push(arguments)
+            };
+            a[g] || (a[g] = k.ak);
+            b = e.createElement(h);
+            b.async = 1;
+            b.src = "//www.gstatic.com/wcm/loader.js";
+            d = e.getElementsByTagName(h)[0];
+            d.parentNode.insertBefore(b, d);
+            a[f] = function(b, d, e) {
+                a[c](2, b, k, d, null, new Date, e)
+            };
+            a[f]()
+        })(window, document, "_googWcmImpl", "_googWcmGet", "_googWcmAk", "script");
+    </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window,
+            document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '223048821436475');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=223048821436475&ev=PageView&noscript=1" /></noscript>
+    <!-- DO NOT MODIFY -->
+    <!-- End Facebook Pixel Code -->
+
+    <link rel="stylesheet" href="https://use.typekit.net/kcw1tmq.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body data-rsssl=1 class="page-template page-template-page-inner-full-width page-template-page-inner-full-width-php page page-id-5527 theme-nomad-travel woocommerce-no-js yith-wcan-free wpb-js-composer js-comp-ver-4.12.1 vc_responsive">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe  height="0" width="0" style="display:none;visibility:hidden" data-src="https://www.googletagmanager.com/ns.html?id=GTM-M3R7SKL" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <a class="btn-callappointment" href="tel:+441341555061"></a>
+    <!--<button class="btn-appointment js-slideout-toggle"></button>-->
+    <a href="/travel-clinic#book-appointment" class="btn-appointment js-slideout-toggle"></a>
+
+    
+    <div id="nomad-content">
+        <header id="nomad-nav" class="header">
+            <nav role="navigation">
+                <div class="navbar navbar-inverse">
+                    <div class="container">
+                        <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <a class="navbar-brand" href="https://www.nomadtravel.co.uk/" title="Nomad" rel="homepage">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1589.53 271.47" class="nav-logo nomad-logo">
+    <g id="nomadLogo" data-name="nomadLogo">
+        <path d="M500.09,2.39l.06,265.84H454.38l-108.83-175V268.48h-47V2.27l45.78.16L453.17,177.34V2.4Z" fill="#fff" />
+        <path d="M797,135.74c0,74.91-58.4,135.73-130.18,135.73S536.57,210.65,536.57,135.74,595,0,666.83,0,797,60.9,797,135.74Zm-47,0C750,86.81,712.7,47,666.83,47s-83.29,39.84-83.29,88.77,37.34,88.77,83.29,88.77S750,184.74,750,135.74Z" fill="#fff" />
+        <path d="M1033.88,2.21H1084V268.48h-47V105.9L958.93,268h0L880.85,105.9V268.48h-47V2.21H884l75,163.18Z" fill="#fff" />
+        <path d="M1251.7,2.58h-36.09L1113.69,268H1164l20.21-53.8h99.89l19.7,53.8h50.42ZM1233.77,86.5,1265,167.26h-62.23Z" fill="#fff" />
+        <path d="M1548.51,37.12a118.84,118.84,0,0,0-45.12-26.26C1488.08,5.64,1467,3,1440.84,3h-57.49V267.62h56.83c26.41,0,47.17-2.47,61.63-7.34,15.64-4.9,30.77-13.73,45-26.24,28.35-25,42.72-58.27,42.72-98.73S1575.73,61.94,1548.51,37.12ZM1443.18,224.28H1429V46.33h14.15c32.15,0,56.72,7.62,73,22.65,18.12,16.84,27.31,39.16,27.31,66.33,0,26.93-9.29,49.07-27.62,65.8a85.31,85.31,0,0,1-30.14,17.82C1474.55,222.48,1460.23,224.28,1443.18,224.28Z" fill="#fff" />
+        <path d="M131.07,2.58A131.07,131.07,0,1,0,262.14,133.65h0A131.07,131.07,0,0,0,131.07,2.58Zm40,164.91V147.87a2.45,2.45,0,0,1,2.43-2.45,2.41,2.41,0,0,1,1.23.33h0a32.33,32.33,0,0,1,8.32,7.32,2.11,2.11,0,0,0,3.68-1.64,22.35,22.35,0,0,0-3.34-9.13l-1.69-2.71a1.2,1.2,0,0,1,.4-1.66,1.09,1.09,0,0,1,.55-.18l3.18-.18a35.38,35.38,0,0,1,13.85,2.34,1.23,1.23,0,0,0,1.56-1.64c-2.94-6.61-8.27-10.12-17-10.82l-3.64-.16a1.39,1.39,0,0,1-1.33-1.45,1.49,1.49,0,0,1,.14-.55,12,12,0,0,1,1.77-2.54,16,16,0,0,1,4.29-3.25.71.71,0,0,0,.46-.82c0-.41-.22-.68-.49-.7a19.46,19.46,0,0,0-2.53-.1c-2.35,0-8.35.4-13.24,4.15h0a3.11,3.11,0,0,1-3.59.13c-5.7-3.77-9.15-5.29-11.53-6a25.92,25.92,0,0,0-7.21-1.15,1.08,1.08,0,0,0-.62,2,15.91,15.91,0,0,1,2.15,1.41c1.64,1.3,4,3.19,5.48,4.45h0l2.31,2.47a1,1,0,0,1-.15,1.41,1,1,0,0,1-.49.21c-1.69.11-4.41.35-8.16.87-6,.83-16.67,6.3-22.28,14.31A1.77,1.77,0,0,0,128,144.6c2.72-1.92,5.92-3.93,8.36-4.62a29.73,29.73,0,0,1,11-1.39c2,.28,3.94,1,3.88,1.59h0a1.28,1.28,0,0,1-.33.76l-1,1.22-.48.66c-1.94,3.09-4,6.07-5.09,9.17a2,2,0,0,0,3.43,1.87,32.42,32.42,0,0,1,10-8.49c.39-.21.77-.4,1.13-.56a4.24,4.24,0,0,1,5.93,3.89v18.79h0v67.69H133.63V186.71a1.86,1.86,0,0,1,1.84-1.86,1.88,1.88,0,0,1,.9.23,5.39,5.39,0,0,1,.52.3c3.08,1.68,5.63,5.14,7.76,9.24a1.93,1.93,0,0,0,3.63-1.07,26.7,26.7,0,0,0-3.74-11.23l-1.93-3.1c-.16-.25.06-.84.42-.84,1.65,0,7.81-.19,13,1.83a1.07,1.07,0,0,0,1.31-1.53c-3.23-6-12-9-12-9A31.38,31.38,0,0,1,141,168c-1.31-.7-.71-2.16,1-2.83a50.32,50.32,0,0,1,9.17-1.91c.65-.08.7-1.8-.13-2h-.12a27.23,27.23,0,0,0-6.86-.5c-2.71.15-4.84.31-10.5,2.68l-1.23.58a2.25,2.25,0,0,1-1.93,0,35,35,0,0,0-8.11-2.59,22.32,22.32,0,0,0-4.46-.57,1,1,0,0,0-.79.46c-.09.26-.25.76.09,1.08.11.11.68.41,1.23.77a11.64,11.64,0,0,1,2.48,2c.2.21.38.42.54.62a1.77,1.77,0,0,1-.25,2.48,1.81,1.81,0,0,1-1.16.39,19.13,19.13,0,0,0-5.33.54c-2.78.74-8.91,3-10.61,10-.25,1,.49,1.47,1.12,1.2.19-.08.36-.12.4-.14,1-.7,14.1-4.73,15.24-2.62.29.54.16.2-2.57,3.69a3.46,3.46,0,0,0-.22.31,27.15,27.15,0,0,0-3.4,8.24,1.85,1.85,0,0,0,3.2,1.64,27.7,27.7,0,0,1,7.07-6.14c.32-.19.63-.36.94-.51a1.6,1.6,0,0,1,2.15.69,1.58,1.58,0,0,1,.18.73v48.9H97.23v-67.7H29.54V99.8H97.23V32.11h67.69V99.8h67.69v67.69Z" fill="#fff" />
+    </g>
+</svg>
+                            </a>
+
+                        </div>
+
+                        <div class="navbar-collapse collapse navbar-responsive-collapse">
+
+                            <div id="navitems-wrap">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <a id="nav-question" href="/faq"><i class="fa fa-question" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a id="nav-location" href="/contact"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a id="nav-search" href="#" data-toggle="modal" data-target="#searchmodal"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a id="nav-usrlink" href="/my-account"><span>Login</span> <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a id="nav-cart" role="button" data-toggle="collapse" href="#navcartcoll" aria-expanded="false" aria-controls="navcartcoll"><i class="fa fa-shopping-basket" aria-hidden="true"></i> <span>Basket <span class="navcart-label">(0)</span></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+<!-- UberMenu [Configuration:main] [Theme Loc:main-nav] [Integration:auto] -->
+<!-- [UberMenu Responsive Menu Disabled] --> <nav id="ubermenu-main-47-main-nav" class="ubermenu ubermenu-nojs ubermenu-main ubermenu-menu-47 ubermenu-loc-main-nav ubermenu-responsive-nocollapse ubermenu-horizontal ubermenu-transition-shift ubermenu-trigger-click ubermenu-skin-black-white-2 ubermenu-has-border ubermenu-bar-align-right ubermenu-items-align-center ubermenu-disable-submenu-scroll ubermenu-sub-indicators ubermenu-retractors-responsive ubermenu-submenu-indicator-closes"><ul id="ubermenu-nav-main-47-main-nav" class="ubermenu-nav" data-title="Main Menu"><li id="menu-item-18660" class="nav-parent-covid ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-18660 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-target-with-image ubermenu-item-layout-default ubermenu-item-layout-image_left" href="https://www.nomadtravel.co.uk/covid-19" tabindex="0"><img   width="62" height="53" alt="navicn-covid" data-src="https://www.nomadtravel.co.uk/wp-content/uploads/navicn-covid.png" class="ubermenu-image ubermenu-image-size-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="ubermenu-image ubermenu-image-size-full" src="https://www.nomadtravel.co.uk/wp-content/uploads/navicn-covid.png" width="62" height="53" alt="navicn-covid"  /></noscript><span class="ubermenu-target-title ubermenu-target-text">COVID-19</span></a></li><li id="menu-item-4656" class="nav-parent-clinic ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-advanced-sub ubermenu-item-4656 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega" ><a class="ubermenu-target ubermenu-target-with-image ubermenu-item-layout-default ubermenu-item-layout-image_left" href="/travel-clinic" tabindex="0"><img   width="110" height="105" alt="Travel Clinic Icon" data-src="https://www.nomadtravel.co.uk/wp-content/uploads/2018/01/navicn-clinic@2x-1.png" class="ubermenu-image ubermenu-image-size-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="ubermenu-image ubermenu-image-size-full" src="https://www.nomadtravel.co.uk/wp-content/uploads/2018/01/navicn-clinic@2x-1.png" width="110" height="105" alt="Travel Clinic Icon"  /></noscript><span class="ubermenu-target-title ubermenu-target-text">Clinic</span><i class='ubermenu-sub-indicator fas fa-angle-down'></i></a><div  class="ubermenu-submenu ubermenu-submenu-id-4656 ubermenu-submenu-type-auto ubermenu-submenu-type-mega ubermenu-submenu-drop ubermenu-submenu-align-full_width"  ><ul class="ubermenu-row ubermenu-row-id-5720  container"><li id="menu-item-7804" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-7804 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-7" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/occupational-health/psychosocial-health"><span class="ubermenu-target-title ubermenu-target-text">Psychosocial Health</span></a></li><li id="menu-item-13150" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-13150 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-7" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/occupational-health"><span class="ubermenu-target-title ubermenu-target-text">Occupational Travel Health</span></a></li><li id="menu-item-5717" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-5717 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-7" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-vaccines"><span class="ubermenu-target-title ubermenu-target-text">Travel Vaccines</span></a></li><li id="menu-item-5713" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-5713 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-7" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-clinic/clinic-finder"><span class="ubermenu-target-title ubermenu-target-text">Find a Travel Clinic</span></a></li><li id="menu-item-5714" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-5714 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-7" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-clinic#book-appointment"><span class="ubermenu-target-title ubermenu-target-text">Book Now</span></a></li><li id="menu-item-5715" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-5715 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-7" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-clinic/vaccination-prices"><span class="ubermenu-target-title ubermenu-target-text">Vaccination Prices</span></a></li><li id="menu-item-6932" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-6932 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-7" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-clinic/travel-vaccinations-for"><span class="ubermenu-target-title ubermenu-target-text">Destinations</span></a></li></ul></div></li><li id="menu-item-24026" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-24026 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/occupational-health" tabindex="0"><span class="ubermenu-target-title ubermenu-target-text">Screening</span></a></li><li id="menu-item-4657" class="nav-parent-pharm ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-advanced-sub ubermenu-item-4657 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega" ><a class="ubermenu-target ubermenu-target-with-image ubermenu-item-layout-default ubermenu-item-layout-image_left" href="/pharmacy" tabindex="0"><img   width="109" height="105" alt="navicn-pharm2x" data-src="https://www.nomadtravel.co.uk/wp-content/uploads/2016/10/navicn-pharm@2x.png" class="ubermenu-image ubermenu-image-size-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="ubermenu-image ubermenu-image-size-full" src="https://www.nomadtravel.co.uk/wp-content/uploads/2016/10/navicn-pharm@2x.png" width="109" height="105" alt="navicn-pharm2x"  /></noscript><span class="ubermenu-target-title ubermenu-target-text">Pharmacy</span><i class='ubermenu-sub-indicator fas fa-angle-down'></i></a><div  class="ubermenu-submenu ubermenu-submenu-id-4657 ubermenu-submenu-type-auto ubermenu-submenu-type-mega ubermenu-submenu-drop ubermenu-submenu-align-full_width"  ><ul class="ubermenu-row ubermenu-row-id-7537  container"><li id="menu-item-7971" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-has-children ubermenu-item-7971 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-5 ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/pharmacy/malaria-tablets"><span class="ubermenu-target-title ubermenu-target-text">Malaria Tablets</span></a><ul  class="ubermenu-submenu ubermenu-submenu-id-7971 ubermenu-submenu-type-auto ubermenu-submenu-type-stack"  ><li id="menu-item-9783" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-9783 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/pharmacy/malaria-tablets"><span class="ubermenu-target-title ubermenu-target-text">Order Malaria Tablets</span></a></li><li id="menu-item-9779" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-9779 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/order-your-malaria-tablets"><span class="ubermenu-target-title ubermenu-target-text">Help Ordering Malaria Tablets</span></a></li></ul></li><li id="menu-item-8653" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-has-children ubermenu-item-8653 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-5 ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid"><span class="ubermenu-target-title ubermenu-target-text">Medical &#038; First Aid</span></a><ul  class="ubermenu-submenu ubermenu-submenu-id-8653 ubermenu-submenu-type-auto ubermenu-submenu-type-stack"  ><li id="menu-item-17554" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-17554 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="/travel-store/coronavirus"><span class="ubermenu-target-title ubermenu-target-text">Coronavirus</span></a></li><li id="menu-item-8654" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8654 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/medical-kits"><span class="ubermenu-target-title ubermenu-target-text">Medical Kits</span></a></li><li id="menu-item-8655" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8655 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/sterile-kits"><span class="ubermenu-target-title ubermenu-target-text">Sterile Kits</span></a></li><li id="menu-item-8656" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8656 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/diarrhoea-indigestion"><span class="ubermenu-target-title ubermenu-target-text">Diarrhoea &#038; Indigestion</span></a></li><li id="menu-item-8657" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8657 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/first-aid"><span class="ubermenu-target-title ubermenu-target-text">First Aid</span></a></li><li id="menu-item-8658" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8658 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/flight-health"><span class="ubermenu-target-title ubermenu-target-text">Flight Health</span></a></li><li id="menu-item-8661" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8661 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/water-purification"><span class="ubermenu-target-title ubermenu-target-text">Water Purification</span></a></li></ul></li><li id="menu-item-7023" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-has-children ubermenu-item-7023 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-5 ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence"><span class="ubermenu-target-title ubermenu-target-text">Mosquito &#038; Insect Defence</span></a><ul  class="ubermenu-submenu ubermenu-submenu-id-7023 ubermenu-submenu-type-auto ubermenu-submenu-type-stack"  ><li id="menu-item-9543" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-9543 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/mosquito-repellents"><span class="ubermenu-target-title ubermenu-target-text">Mosquito Repellents</span></a></li><li id="menu-item-7103" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7103 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/mosquito-plug-ins"><span class="ubermenu-target-title ubermenu-target-text">Mosquito Plug-Ins</span></a></li><li id="menu-item-7029" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7029 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/mosquito-nets"><span class="ubermenu-target-title ubermenu-target-text">Mosquito Nets</span></a></li><li id="menu-item-7102" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7102 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/gear-clothing-repellents"><span class="ubermenu-target-title ubermenu-target-text">Gear &#038; Clothing Repellents</span></a></li><li id="menu-item-7026" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7026 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/bed-bug-protection"><span class="ubermenu-target-title ubermenu-target-text">Bed Bug Protection</span></a></li><li id="menu-item-7027" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7027 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/bite-relief"><span class="ubermenu-target-title ubermenu-target-text">Bite Relief</span></a></li></ul></li><li id="menu-item-24036" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-24036 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-5 ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="/travel-store/travel-accessories"><span class="ubermenu-target-title ubermenu-target-text">Travel Accessories</span></a><ul  class="ubermenu-submenu ubermenu-submenu-id-24036 ubermenu-submenu-type-auto ubermenu-submenu-type-stack"  ><li id="menu-item-8659" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8659 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/travel-accessories/toiletries"><span class="ubermenu-target-title ubermenu-target-text">Toiletries</span></a></li><li id="menu-item-24037" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-24037 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="/travel-store/security-protection/money-belts-personal-security"><span class="ubermenu-target-title ubermenu-target-text">Money Belts &#038; Personal Security</span></a></li><li id="menu-item-24038" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-24038 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="/travel-store/security-protection/luggage-security-protection"><span class="ubermenu-target-title ubermenu-target-text">Luggage Security &#038; Protection</span></a></li><li id="menu-item-24039" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-24039 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="/travel-store/security-protection/packing-luggage-accessories"><span class="ubermenu-target-title ubermenu-target-text">Packing &#038; Luggage Accessories</span></a></li><li id="menu-item-24040" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-24040 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="/travel-store/travel-accessories/power"><span class="ubermenu-target-title ubermenu-target-text">Power</span></a></li><li id="menu-item-24041" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-24041 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="/travel-store/travel-accessories/travel-gadgets"><span class="ubermenu-target-title ubermenu-target-text">Travel Gadgets</span></a></li><li id="menu-item-24042" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-24042 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="/travel-store/travel-accessories/gift-cards"><span class="ubermenu-target-title ubermenu-target-text">Gift Cards</span></a></li></ul></li><li id="menu-item-7025" class="ubermenu-item ubermenu-item-type-post_type ubermenu-item-object-page ubermenu-item-7025 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-5" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/bespoke-medical-kits"><span class="ubermenu-target-title ubermenu-target-text">Bespoke Medical Kits</span></a></li></ul></div></li><li id="menu-item-4658" class="nav-parent-store ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-advanced-sub ubermenu-item-4658 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega" ><a class="ubermenu-target ubermenu-target-with-image ubermenu-item-layout-default ubermenu-item-layout-image_left" href="/store" tabindex="0"><img   width="104" height="104" alt="navicn-travel2x" data-src="https://www.nomadtravel.co.uk/wp-content/uploads/2016/10/navicn-travel@2x.png" class="ubermenu-image ubermenu-image-size-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="ubermenu-image ubermenu-image-size-full" src="https://www.nomadtravel.co.uk/wp-content/uploads/2016/10/navicn-travel@2x.png" width="104" height="104" alt="navicn-travel2x"  /></noscript><span class="ubermenu-target-title ubermenu-target-text">Store</span><i class='ubermenu-sub-indicator fas fa-angle-down'></i></a><div  class="ubermenu-submenu ubermenu-submenu-id-4658 ubermenu-submenu-type-auto ubermenu-submenu-type-mega ubermenu-submenu-drop ubermenu-submenu-align-full_width"  ><ul class="ubermenu-row ubermenu-row-id-4723  container"><li id="menu-item-4712" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-ubermenu-custom ubermenu-item-4712 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-full" ><ul class="ubermenu-content-block ubermenu-widget-area ubermenu-autoclear"><li id="text-17" class="widget widget_text ubermenu-column-full ubermenu-widget ubermenu-column ubermenu-item-header">			<div class="textwidget"><div id="ready-icons-wrapper">
+	<a class="bakready" href="/backpacking-ready">
+		<img   alt="" width="290" height="420" data-src="/wp-content/uploads/2018/01/backpacking-ready-menu-icon.png" class="aligncenter size-full wp-image-7373 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="aligncenter size-full wp-image-7373" src="/wp-content/uploads/2018/01/backpacking-ready-menu-icon.png" alt="" width="290" height="420" /></noscript>
+	</a>
+	<a class="busready" href="/business-ready">
+		<img   alt="" width="290" height="420" data-src="/wp-content/uploads/2017/07/business-ready-menu-icon.png" class="aligncenter size-full wp-image-7374 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="aligncenter size-full wp-image-7374" src="/wp-content/uploads/2017/07/business-ready-menu-icon.png" alt="" width="290" height="420" /></noscript>
+	</a>
+	<a class="desready" href="/desert-ready">
+		<img   alt="" width="290" height="420" data-src="/wp-content/uploads/2017/07/desert-ready-menu-icon.png" class="aligncenter size-full wp-image-7375 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="aligncenter size-full wp-image-7375" src="/wp-content/uploads/2017/07/desert-ready-menu-icon.png" alt="" width="290" height="420" /></noscript>
+	</a>
+	<a class="dihready" href="/diarrhoea-ready">
+		<img   alt="" width="290" height="420" data-src="/wp-content/uploads/2017/07/diarrhoea-ready-menu-iconw.png" class="aligncenter size-full wp-image-7376 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="aligncenter size-full wp-image-7376" src="/wp-content/uploads/2017/07/diarrhoea-ready-menu-iconw.png" alt="" width="290" height="420" /></noscript>
+	</a>
+	<a class="junready" href="/jungle-ready">
+		<img   alt="" width="290" height="420" data-src="/wp-content/uploads/2017/07/jungle-ready-menu-icon.png" class="aligncenter size-full wp-image-7377 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="aligncenter size-full wp-image-7377" src="/wp-content/uploads/2017/07/jungle-ready-menu-icon.png" alt="" width="290" height="420" /></noscript>
+	</a>
+	<a class="ovrready" href="/overland-ready">
+		<img   alt="" width="290" height="420" data-src="/wp-content/uploads/2017/07/overland-ready-menu-icon.png" class="aligncenter size-full wp-image-7378 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="aligncenter size-full wp-image-7378" src="/wp-content/uploads/2017/07/overland-ready-menu-icon.png" alt="" width="290" height="420" /></noscript>	
+	</a>
+</div></div>
+		</li></ul></li><li id="menu-item-7050" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-has-children ubermenu-item-7050 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-5 ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/security-protection"><span class="ubermenu-target-title ubermenu-target-text">Security &#038; Protection</span></a><ul  class="ubermenu-submenu ubermenu-submenu-id-7050 ubermenu-submenu-type-auto ubermenu-submenu-type-stack"  ><li id="menu-item-7049" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7049 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/travel-accessories/money-belts-personal-security"><span class="ubermenu-target-title ubermenu-target-text">Money Belts &#038; Personal Security</span></a></li><li id="menu-item-7047" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7047 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/travel-accessories/luggage-security-protection"><span class="ubermenu-target-title ubermenu-target-text">Luggage Security &#038; Protection</span></a></li><li id="menu-item-7042" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7042 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/travel-accessories/packing-luggage-accessories"><span class="ubermenu-target-title ubermenu-target-text">Packing &#038; Luggage Accessories</span></a></li></ul></li><li id="menu-item-8642" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-has-children ubermenu-item-8642 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-5 ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid"><span class="ubermenu-target-title ubermenu-target-text">Medical &#038; First Aid</span></a><ul  class="ubermenu-submenu ubermenu-submenu-id-8642 ubermenu-submenu-type-auto ubermenu-submenu-type-stack"  ><li id="menu-item-17553" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-17553 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="/travel-store/coronavirus"><span class="ubermenu-target-title ubermenu-target-text">Coronavirus</span></a></li><li id="menu-item-8643" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8643 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/medical-kits"><span class="ubermenu-target-title ubermenu-target-text">Medical Kits</span></a></li><li id="menu-item-8644" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8644 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/sterile-kits"><span class="ubermenu-target-title ubermenu-target-text">Sterile Kits</span></a></li><li id="menu-item-8646" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8646 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/diarrhoea-indigestion"><span class="ubermenu-target-title ubermenu-target-text">Diarrhoea &#038; Indigestion</span></a></li><li id="menu-item-8645" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8645 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/first-aid"><span class="ubermenu-target-title ubermenu-target-text">First Aid</span></a></li><li id="menu-item-8647" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8647 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/flight-health"><span class="ubermenu-target-title ubermenu-target-text">Flight Health</span></a></li></ul></li><li id="menu-item-7061" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-has-children ubermenu-item-7061 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-5 ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence"><span class="ubermenu-target-title ubermenu-target-text">Mosquito &#038; Insect Defence</span></a><ul  class="ubermenu-submenu ubermenu-submenu-id-7061 ubermenu-submenu-type-auto ubermenu-submenu-type-stack"  ><li id="menu-item-9542" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-9542 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/mosquito-repellents"><span class="ubermenu-target-title ubermenu-target-text">Mosquito Repellents</span></a></li><li id="menu-item-7100" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7100 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/mosquito-plug-ins"><span class="ubermenu-target-title ubermenu-target-text">Mosquito Plug-Ins</span></a></li><li id="menu-item-7062" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7062 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/mosquito-nets"><span class="ubermenu-target-title ubermenu-target-text">Mosquito Nets</span></a></li><li id="menu-item-7101" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7101 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/gear-clothing-repellents"><span class="ubermenu-target-title ubermenu-target-text">Gear &#038; Clothing Repellents</span></a></li><li id="menu-item-7058" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7058 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/bed-bug-protection"><span class="ubermenu-target-title ubermenu-target-text">Bed Bug Protection</span></a></li><li id="menu-item-7059" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7059 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/mosquito-insect-defence/bite-relief"><span class="ubermenu-target-title ubermenu-target-text">Bite Relief</span></a></li></ul></li><li id="menu-item-8648" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-has-children ubermenu-item-8648 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-5 ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/travel-hygiene"><span class="ubermenu-target-title ubermenu-target-text">Travel Hygiene</span></a><ul  class="ubermenu-submenu ubermenu-submenu-id-8648 ubermenu-submenu-type-auto ubermenu-submenu-type-stack"  ><li id="menu-item-8651" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8651 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/medical-first-aid/water-purification"><span class="ubermenu-target-title ubermenu-target-text">Water Purification</span></a></li><li id="menu-item-8649" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-8649 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/travel-accessories/toiletries"><span class="ubermenu-target-title ubermenu-target-text">Toiletries</span></a></li><li id="menu-item-7069" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7069 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/travel-hygiene/drink-eat"><span class="ubermenu-target-title ubermenu-target-text">Drink &#038; Eat</span></a></li></ul></li><li id="menu-item-7072" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-has-children ubermenu-item-7072 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-2 ubermenu-column ubermenu-column-1-5 ubermenu-has-submenu-stack" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/travel-accessories"><span class="ubermenu-target-title ubermenu-target-text">Travel Accessories</span></a><ul  class="ubermenu-submenu ubermenu-submenu-id-7072 ubermenu-submenu-type-auto ubermenu-submenu-type-stack"  ><li id="menu-item-7071" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7071 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/travel-accessories/power"><span class="ubermenu-target-title ubermenu-target-text">Power</span></a></li><li id="menu-item-7073" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7073 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/travel-accessories/travel-gadgets"><span class="ubermenu-target-title ubermenu-target-text">Travel Gadgets</span></a></li><li id="menu-item-7113" class="ubermenu-item ubermenu-item-type-taxonomy ubermenu-item-object-product_cat ubermenu-item-7113 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-3 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="https://www.nomadtravel.co.uk/travel-store/travel-accessories/gift-cards"><span class="ubermenu-target-title ubermenu-target-text">Gift Cards</span></a></li></ul></li></ul></div></li><li id="menu-item-4800" class="nav-parent-blog ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-4800 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto" ><a class="ubermenu-target ubermenu-target-with-image ubermenu-item-layout-default ubermenu-item-layout-image_left" href="/blog" tabindex="0"><img   width="53" height="53" alt="navicn-blog" data-src="https://www.nomadtravel.co.uk/wp-content/uploads/2016/12/navicn-blog.png" class="ubermenu-image ubermenu-image-size-full lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="ubermenu-image ubermenu-image-size-full" src="https://www.nomadtravel.co.uk/wp-content/uploads/2016/12/navicn-blog.png" width="53" height="53" alt="navicn-blog"  /></noscript><span class="ubermenu-target-title ubermenu-target-text">Blog</span></a></li></ul></nav>
+<!-- End UberMenu -->
+
+                        </div>
+                    </div>
+                </div>
+                <div id="navcart" class="container">
+                    <div class="collapse" id="navcartcoll">
+                        <div class="well">
+                            <div class="widgettitle">
+                                <h4><a href="/basket">Basket</a></h4>
+                                <div class="buttons">
+                                    <a href="/basket" class="btn">View Basket</a>
+                                    <a href="/checkout" class="btn checkout">Checkout</a>
+                                </div>
+                            </div>
+                            <div id="woocommerce_widget_cart-2" class="widget widgetNav woocommerce widget_shopping_cart"><div class="widget_shopping_cart_content"></div></div>                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <link rel=”preload” href=”https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/less/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3” as=”font” crossorigin=”anonymous”>
+
+        </header>       
+      
+            <header class="page-head article-header container-fluid">
+
+        <div class="container header-content">
+          <div class="row cleafix">
+            <div class="col-md-5">
+              <h1 class="page-title entry-title" itemprop="headline">Newsletter</h1>
+              <ol class="breadcrumb" id="crumbs" xmlns:v="http://rdf.data-vocabulary.org/#"><li typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://www.nomadtravel.co.uk/">Home</a></li><li class="current">Newsletter</li></ol>            </div>
+
+            <div class="col-md-7">
+                          </div>
+            
+          </div>
+        </div>
+      </header> <!-- end article header -->
+
+      <div class="container">
+
+        <div id="content" class="clearfix row">
+        
+          <div id="main" class="col-md-12 clearfix" role="main">
+
+            <article id="post-5527" class="clearfix post-5527 page type-page status-publish hentry" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            
+              <section class="page-content entry-content clearfix" itemprop="articleBody">
+                <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid row-banner-becomenomad-header vc_custom_1498040112550 vc_row-has-fill vc_column-gap-30"><div class="col-signup-txt wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<h3>Here at Nomad, we&#8217;ve been kitting out travellers for over 25 years, ensuring they have all the medical suppplies and travel kit to stay healthy and enjoy every moment of their trip.</h3>
+<h4>We&#8217;d love to be able to share our travel expertise with you, so join more than 36,000 subscribers and get our FREE newsletter straight to your inbox.</h4>
+
+		</div>
+	</div>
+
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<h3>Subscribe now and you will receive:</h3>
+<ul>
+<li>Expert travel kit guides</li>
+<li>The latest Travel Health advice</li>
+<li>Exclusive, email-only deals and offers</li>
+<li>Discount codes for essential travel kit</li>
+</ul>
+
+		</div>
+	</div>
+</div></div></div><div class="col-signup-form wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid subscribe-formwrap vc_custom_1494002909900"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<h3 style="text-align: center;"><span style="color: #b93d26;">BECOME A NOMAD</span></h3>
+<p style="text-align: center;">Nomad is run for travellers, by travellers. Join the Nomad community for updates on special deals, competitions and expert insight into travel kit and expedition equipment.</p>
+
+		</div>
+	</div>
+
+                <div class='gf_browser_unknown gform_wrapper gform_legacy_markup_wrapper' id='gform_wrapper_24' ><form method='post' enctype='multipart/form-data'  id='gform_24'  action='/newsletter' novalidate>
+                        <div class='gform_body gform-body'><ul id='gform_fields_24' class='gform_fields top_label form_sublabel_below description_below'><li id="field_24_1"  class="gfield nolabel gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"  data-js-reload="field_24_1"><label class='gfield_label' for='input_24_1' >Email<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></label><div class='ginput_container ginput_container_email'>
+                            <input name='input_1' id='input_24_1' type='email' value='' class='medium'   placeholder='Email Address' aria-required="true" aria-invalid="false"  />
+                        </div></li></ul></div>
+        <div class='gform_footer top_label'> <input type='submit' id='gform_submit_button_24' class='gform_button button' value='Subscribe Now'  onclick='if(window["gf_submitting_24"]){return false;}  if( !jQuery("#gform_24")[0].checkValidity || jQuery("#gform_24")[0].checkValidity()){window["gf_submitting_24"]=true;}  ' onkeypress='if( event.keyCode == 13 ){ if(window["gf_submitting_24"]){return false;} if( !jQuery("#gform_24")[0].checkValidity || jQuery("#gform_24")[0].checkValidity()){window["gf_submitting_24"]=true;}  jQuery("#gform_24").trigger("submit",[true]); }' /> 
+            <input type='hidden' class='gform_hidden' name='is_submit_24' value='1' />
+            <input type='hidden' class='gform_hidden' name='gform_submit' value='24' />
+            
+            <input type='hidden' class='gform_hidden' name='gform_unique_id' value='' />
+            <input type='hidden' class='gform_hidden' name='state_24' value='WyJbXSIsIjBjYWM0Y2U0ZWY5NGYyYjk3YTA2OTg2MjBhY2IzMGEzIl0=' />
+            <input type='hidden' class='gform_hidden' name='gform_target_page_number_24' id='gform_target_page_number_24' value='0' />
+            <input type='hidden' class='gform_hidden' name='gform_source_page_number_24' id='gform_source_page_number_24' value='1' />
+            <input type='hidden' name='gform_field_values' value='' />
+            
+        </div>
+                        </form>
+                        </div></div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div>
+            
+              </section> <!-- end article section -->
+              
+              <footer>
+        
+                                
+              </footer> <!-- end article footer -->
+            
+            </article> <!-- end article -->
+                        
+                
+            
+                    
+          </div> <!-- end #main -->
+
+                
+        </div> <!-- end #content -->
+
+      </div> <!-- end .container -->
+
+    <div id="subscription-footer" class="row-slimsubscription">
+      <div class="container">
+        <div id="text-21" class="widget widgetFooter widget_text">			<div class="textwidget"><h3>BECOME A NOMAD - SUBSCRIBE TODAY</h3>
+<p>Join the Nomad community for updates and expert insight</p></div>
+		</div><div id="gform_widget-2" class="widget widgetFooter gform_widget"><script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-includes/js/dist/vendor/regenerator-runtime.js' id='regenerator-runtime-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-includes/js/dist/vendor/wp-polyfill.js' id='wp-polyfill-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-includes/js/dist/dom-ready.js' id='wp-dom-ready-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-includes/js/dist/hooks.js' id='wp-hooks-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-includes/js/dist/i18n.js' id='wp-i18n-js'></script>
+<script type='text/javascript' id='wp-i18n-js-after'>
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type='text/javascript' id='wp-a11y-js-translations'>
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", {"translation-revision-date":"2022-07-05 17:05:41+0000","generator":"GlotPress\/4.0.0-alpha.1","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n != 1;","lang":"en_GB"},"Notifications":["Notifications"]}},"comment":{"reference":"wp-includes\/js\/dist\/a11y.js"}} );
+</script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-includes/js/dist/a11y.js' id='wp-a11y-js'></script>
+<script type='text/javascript' defer='defer' src='https://www.nomadtravel.co.uk/wp-content/plugins/gravityforms/js/placeholders.jquery.min.js' id='gform_placeholder-js'></script>
+
+                <div class='gf_browser_unknown gform_wrapper gform_legacy_markup_wrapper' id='gform_wrapper_24' ><form method='post' enctype='multipart/form-data'  id='gform_24'  action='/newsletter' novalidate>
+                        <div class='gform_body gform-body'><ul id='gform_fields_24' class='gform_fields top_label form_sublabel_below description_below'><li id="field_24_1"  class="gfield nolabel gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible"  data-js-reload="field_24_1"><label class='gfield_label' for='input_24_1' >Email<span class="gfield_required"><span class="gfield_required gfield_required_asterisk">*</span></span></label><div class='ginput_container ginput_container_email'>
+                            <input name='input_1' id='input_24_1' type='email' value='' class='medium' tabindex='1'  placeholder='Email Address' aria-required="true" aria-invalid="false"  />
+                        </div></li></ul></div>
+        <div class='gform_footer top_label'> <input type='submit' id='gform_submit_button_24' class='gform_button button' value='Subscribe Now' tabindex='2' onclick='if(window["gf_submitting_24"]){return false;}  if( !jQuery("#gform_24")[0].checkValidity || jQuery("#gform_24")[0].checkValidity()){window["gf_submitting_24"]=true;}  ' onkeypress='if( event.keyCode == 13 ){ if(window["gf_submitting_24"]){return false;} if( !jQuery("#gform_24")[0].checkValidity || jQuery("#gform_24")[0].checkValidity()){window["gf_submitting_24"]=true;}  jQuery("#gform_24").trigger("submit",[true]); }' /> 
+            <input type='hidden' class='gform_hidden' name='is_submit_24' value='1' />
+            <input type='hidden' class='gform_hidden' name='gform_submit' value='24' />
+            
+            <input type='hidden' class='gform_hidden' name='gform_unique_id' value='' />
+            <input type='hidden' class='gform_hidden' name='state_24' value='WyJbXSIsIjBjYWM0Y2U0ZWY5NGYyYjk3YTA2OTg2MjBhY2IzMGEzIl0=' />
+            <input type='hidden' class='gform_hidden' name='gform_target_page_number_24' id='gform_target_page_number_24' value='0' />
+            <input type='hidden' class='gform_hidden' name='gform_source_page_number_24' id='gform_source_page_number_24' value='1' />
+            <input type='hidden' name='gform_field_values' value='' />
+            
+        </div>
+                        </form>
+                        </div></div>      </div>
+    </div>
+    <footer id="footer" class="clearfix">
+      <div id="footer-widgets">
+        <div class="container">
+
+
+        <div id="footer-wrapper">
+
+          <div class="row">
+            <div class="col-sm-6 col-md-3">
+              <div id="text-16" class="widget widgetFooter widget_text"><h4 class="widgettitle"><a href="/contact">CONTACT US</a></h4>			<div class="textwidget"><p><strong>Email:</strong> <a href="mailto:info@nomadtravel.co.uk">info@nomadtravel.co.uk</a><br />
+<strong>Clinic Bookings:</strong> <a href="tel:+441341555061">01341 555 061</a></p>
+</div>
+		</div><div id="nav_menu-7" class="widget widgetFooter widget_nav_menu"><h4 class="widgettitle">Become a Nomad</h4><div class="menu-become-a-nomad-footer-container"><ul id="menu-become-a-nomad-footer" class="menu"><li id="menu-item-7133" class="footnav-social social-fb menu-item menu-item-type-custom menu-item-object-custom menu-item-7133"><a target="_blank" rel="noopener" href="https://www.facebook.com/nomadtravelstores">Nomad Travel on Facebook</a></li>
+<li id="menu-item-7134" class="footnav-social social-tw menu-item menu-item-type-custom menu-item-object-custom menu-item-7134"><a target="_blank" rel="noopener" href="https://twitter.com/Nomad_Travel">Nomad Travel on Twitter</a></li>
+<li id="menu-item-7135" class="footnav-social social-tw menu-item menu-item-type-custom menu-item-object-custom menu-item-7135"><a target="_blank" rel="noopener" href="https://twitter.com/NomadTravelNews">Nomad Health News on Twitter</a></li>
+<li id="menu-item-7728" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7728"><a href="https://www.nomadtravel.co.uk/about-us">About Us</a></li>
+<li id="menu-item-7129" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5527 current_page_item menu-item-7129"><a href="https://www.nomadtravel.co.uk/newsletter" aria-current="page">Nomad Newsletter</a></li>
+<li id="menu-item-7128" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7128"><a href="https://www.nomadtravel.co.uk/education">Nomad Education</a></li>
+<li id="menu-item-7130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7130"><a href="https://www.nomadtravel.co.uk/industry-partners">Our Industry Partners</a></li>
+<li id="menu-item-7132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7132"><a href="https://www.nomadtravel.co.uk/groups-education-and-business-accounts">Groups, Education and Business Accounts</a></li>
+<li id="menu-item-21391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21391"><a href="https://www.nomadtravel.co.uk/travel-insurance">Travel Insurance</a></li>
+<li id="menu-item-7131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7131"><a href="https://www.nomadtravel.co.uk/careers">Careers</a></li>
+</ul></div></div>            </div> <!-- end widget1 -->
+
+            <div class="col-sm-6 col-md-3">
+              <div id="nav_menu-8" class="widget widgetFooter widget_nav_menu"><h4 class="widgettitle"><a href="/store">Travel Store</a></h4><div class="menu-footer-travel-store-container"><ul id="menu-footer-travel-store" class="menu"><li id="menu-item-7729" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7729"><a href="https://www.nomadtravel.co.uk/about-us">Why Nomad?</a></li>
+<li id="menu-item-7776" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7776"><a href="https://www.nomadtravel.co.uk/store-finder">Find a Nomad Location</a></li>
+<li id="menu-item-7137" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7137"><a href="https://www.nomadtravel.co.uk/delivery">Delivery</a></li>
+<li id="menu-item-7138" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7138"><a href="https://www.nomadtravel.co.uk/collection">Collection</a></li>
+<li id="menu-item-7139" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7139"><a href="https://www.nomadtravel.co.uk/returns">Returns</a></li>
+<li id="menu-item-7140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7140"><a href="https://www.nomadtravel.co.uk/payments">Payments</a></li>
+<li id="menu-item-7141" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7141"><a href="https://www.nomadtravel.co.uk/faq">FAQ</a></li>
+<li id="menu-item-7142" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7142"><a href="https://www.nomadtravel.co.uk/terms-and-conditions">Terms &#038; Conditions</a></li>
+<li id="menu-item-23323" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23323"><a href="https://www.nomadtravel.co.uk/wp-content/uploads/Complaints-Policy-v6.pdf">Customer Complaints</a></li>
+</ul></div></div>            </div> <!-- end widget1 -->
+
+            <div class="col-sm-6 col-md-3">
+              <div id="nav_menu-9" class="widget widgetFooter widget_nav_menu"><h4 class="widgettitle"><a href="/travel-clinic">Travel Clinic</a></h4><div class="menu-footer-travel-clinic-container"><ul id="menu-footer-travel-clinic" class="menu"><li id="menu-item-7726" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7726"><a href="https://www.nomadtravel.co.uk/about-us">Why Nomad Clinics?</a></li>
+<li id="menu-item-7225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7225"><a href="https://www.nomadtravel.co.uk/travel-clinic/clinic-finder">Find a Travel Clinic</a></li>
+<li id="menu-item-7226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7226"><a href="https://www.nomadtravel.co.uk/travel-clinic/london-travel-clinic">London Travel Clinic</a></li>
+<li id="menu-item-7227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7227"><a href="https://www.nomadtravel.co.uk/travel-vaccines">Travel Vaccines</a></li>
+<li id="menu-item-7808" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7808"><a href="https://www.nomadtravel.co.uk/occupational-health/psychosocial-health">Psychosocial Health</a></li>
+<li id="menu-item-7229" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7229"><a href="https://www.nomadtravel.co.uk/education">Travel Health Bulletin</a></li>
+<li id="menu-item-7230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7230"><a href="https://www.nomadtravel.co.uk/groups-education-and-business-accounts">Off-site Visits</a></li>
+<li id="menu-item-9571" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9571"><a href="https://www.nomadtravel.co.uk/records">Medical Records</a></li>
+<li id="menu-item-23221" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23221"><a href="https://www.nomadtravel.co.uk/wp-content/uploads/Quality-Policy-V3-102021.pdf">Quality Policy</a></li>
+</ul></div></div><div id="custom_html-4" class="widget_text widget widgetFooter widget_custom_html"><div class="textwidget custom-html-widget"><a rel="nofollow noopener" target="_blank" href="https://www.livingwage.org.uk"><img  alt="We are a Living Wage employer" width="150px" style="margin-top: 35px" data-src="/wp-content/uploads/LW-Employer-logo-transparent_0.png" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src="/wp-content/uploads/LW-Employer-logo-transparent_0.png" alt="We are a Living Wage employer" width="150px" style="margin-top: 35px"/></noscript></a></div></div><div id="custom_html-5" class="widget_text widget widgetFooter widget_custom_html"><div class="textwidget custom-html-widget"><a rel="nofollow noopener" target="_blank" href="https://www.thetripgroup.com/"><img  alt="Regulated by the Care Quailty Commission" width="100%" style="margin-top: 35px" data-src="/wp-content/uploads/Trip-Member-White-Landscape-LowRes.jpg" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src="/wp-content/uploads/Trip-Member-White-Landscape-LowRes.jpg" alt="Regulated by the Care Quailty Commission" width="100%" style="margin-top: 35px"/></noscript></a></div></div>            </div> <!-- end widget1 -->
+
+            <div class="col-sm-6 col-md-3">
+              <div id="nav_menu-10" class="widget widgetFooter widget_nav_menu"><h4 class="widgettitle"><a href="/pharmacy">Pharmacy</a></h4><div class="menu-footer-pharmacy-container"><ul id="menu-footer-pharmacy" class="menu"><li id="menu-item-7727" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7727"><a href="https://www.nomadtravel.co.uk/about-us">Why Nomad Pharmacy?</a></li>
+<li id="menu-item-7150" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7150"><a href="https://www.nomadtravel.co.uk/pharmacy-information">Pharmacy Information</a></li>
+<li id="menu-item-8536" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-8536"><a href="https://www.nomadtravel.co.uk/travel-store/pharmacy/malaria-tablets">Malaria Tablets</a></li>
+<li id="menu-item-7764" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7764"><a href="https://www.nomadtravel.co.uk/order-your-malaria-tablets">How to Order Malaria Tablets</a></li>
+<li id="menu-item-7153" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7153"><a href="/travel-store/medical-first-aid">Medical &#038; First Aid Kits</a></li>
+<li id="menu-item-7152" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7152"><a href="https://www.nomadtravel.co.uk/bespoke-medical-kits">Bespoke Medical Kits</a></li>
+</ul></div></div><div id="custom_html-3" class="widget_text widget widgetFooter widget_custom_html"><div class="textwidget custom-html-widget"><a target="_blank" class="footer-badge" href="https://www.gov.uk/travelaware" rel="noopener"><img  alt="" width="400" height="auto"  data-src="/wp-content/uploads/2017/06/travelaware.png" class="aligncenter size-full wp-image-7157 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src="/wp-content/uploads/2017/06/travelaware.png" alt="" width="400" height="auto" class="aligncenter size-full wp-image-7157" /></noscript></a><a target="_blank" class="footer-badge" href="http://medicine-seller-register.mhra.gov.uk/search-registry/465" rel="noopener"><img   alt="" width="336" height="280" data-src="/wp-content/uploads/2017/06/LogoSancoInternet_UK_B-336.png" class="aligncenter size-full wp-image-7156 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img class="aligncenter size-full wp-image-7156" src="/wp-content/uploads/2017/06/LogoSancoInternet_UK_B-336.png" alt="" width="336" height="280" /></noscript></a>
+</div></div><div id="custom_html-2" class="widget_text widget widgetFooter widget_custom_html"><div class="textwidget custom-html-widget"><a rel="nofollow noopener" target="_blank" href="http://www.cqc.org.uk"><img  alt="Regulated by the Care Quailty Commission" width="100%" data-src="/wp-content/uploads/2018/05/CQC-Logo.png" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /><noscript><img src="/wp-content/uploads/2018/05/CQC-Logo.png" alt="Regulated by the Care Quailty Commission" width="100%" /></noscript></a></div></div>            </div> <!-- end widget1 -->
+
+          </div> <!-- end .row -->
+
+        </div> <!-- end #footer-wrapper -->
+
+        </div> <!-- end .container -->
+      </div> <!-- end #footer-widgets -->
+
+      <div id="sub-floor">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 copyright">
+              &copy; 2023 Nomad            </div>
+            <div class="col-md-4 col-md-offset-4 attribution">
+              Made by <a href="http://www.cream.ie/" target="_blank">cream.ie</a>
+            </div>
+          </div> <!-- end .row -->
+        </div>
+      </div>
+
+    </footer> <!-- end footer -->
+</div><!-- end nomad-content -->
+
+  <!--<div id="appoinment-drawer" class="poop">
+    <div id="appoinment-form-wrap">
+      <div id="drawer-close" class="drawer-close"><a href="#">X</a></div>
+          </div>
+  </div>-->
+
+  <script type="text/javascript">
+  jQuery('a.scroll[href^="#"]').bind('click.smoothscroll',function (e) {
+      e.preventDefault();
+      var target = this.hash;
+          $target = jQuery(target);
+
+      jQuery('html, body').stop().animate({
+          'scrollTop': $target.offset().top - 120
+      }, 1000, 'swing', function () {
+      });
+  });
+  jQuery(window).on("load", function () {
+      var urlHash = window.location.href.split("#")[1];
+      if (urlHash &&  jQuery('#' + urlHash).length )
+
+      jQuery('html,body').animate({
+        'scrollTop': jQuery('#' + urlHash).offset().top - 120
+      }, 1000, 'swing', function () {
+      });
+  });
+  </script>
+    <!-- all js scripts are loaded in library/bones.php -->
+
+    <!-- Hello? Doctor? Name? Continue? Yesterday? Tomorrow?  -->
+
+  <div class="modal fade" id="searchmodal" tabindex="-1" role="dialog" aria-labelledby="nomadsearchmodal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <h3>Search for...</h3>
+        <form action="https://www.nomadtravel.co.uk/" method="get" class="form-inline">
+    <fieldset>
+    <div class="input-group">
+      <input type="text" name="s" id="search" placeholder="Search" value="" class="form-control" />
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </span>
+    </div>
+    </fieldset>
+</form>
+
+      </div>
+    </div>
+  </div>
+    
+		<script>
+			window.RS_MODULES = window.RS_MODULES || {};
+			window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+			window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+			window.RS_MODULES.defered = false;
+			window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+			window.RS_MODULES.type = 'compiled';
+		</script>
+		<div class="simple-banner simple-banner-text" style="display:none !important"></div>
+		<!-- BEGIN MENU BUTTON -->
+		<div class="taptap-menu-button-wrapper">
+            
+            <!-- BEGIN MENU BUTTON LABEL (if one is entered) -->
+                        <!-- END MENU BUTTON LABEL (if one is entered) -->
+            
+            <!-- BEGIN MENU BUTTON STYLES -->
+                            
+                    <div class="taptap-main-menu-button">
+                        <div class="taptap-main-menu-button-middle"></div>
+                    </div>
+                                <!-- END MENU BUTTON STYLES -->
+            		</div>
+		<!-- END MENU BUTTON -->
+
+		<!-- BEGIN SEARCH BUTTON -->
+		<div class="taptap-search-button-wrapper">
+			<!-- BEGIN SEARCH BUTTON LABEL (if one is entered) -->
+                        <!-- END SEARCH BUTTON LABEL (if one is entered) -->
+            
+                        <div class="taptap-search-button"></div>
+            		</div>
+		<!-- END SEARCH BUTTON -->
+		
+		<!-- BEGIN SEARCH FORM -->
+		<div class="taptap-search-wrapper">
+				<!-- BEGIN SEARCH FORM CLOSE BUTTON -->
+				<div class="taptap-search-close-wrapper">
+                    <div class="taptap-search-close-inner">
+                    </div>
+                </div>
+				<!-- END SEARCH FORM CLOSE BUTTON -->
+                
+                <!-- BEGIN SEARCH FORM CLEAR FIELD BUTTON -->
+                				<div class="taptap-search-clear-wrapper">
+                    <div class="taptap-search-clear-inner">
+                        <div class="taptap-search-clear"></div>
+                    </div>
+                </div>
+                				<!-- END SEARCH FORM CLEAR FIELD BUTTON -->
+			
+				<form method="get" id="searchform" action="https://www.nomadtravel.co.uk/">
+					<input type="text" name="s" class="taptap-search-field" placeholder="enter search term">
+				</form>
+		</div>
+		<!-- END SEARCH FORM -->
+        
+        <!-- BEGIN SEARCH FORM BACKGROUND -->
+		<div class="taptap-search-background">
+		</div>
+		<!-- END SEARCH FORM BACKGROUND -->
+        
+        <!-- BEGIN SEARCH FORM OVERLAY -->
+		<div class="taptap-search-overlay">
+		</div>
+		<!-- END SEARCH FORM OVERLAY -->
+
+		<!-- BEGIN LOGO -->
+        		<!-- END LOGO -->
+		
+		<!-- BEGIN HEADER BACKGROUND -->
+				<!-- END HEADER BACKGROUND -->
+		
+		<!-- BEGIN MENU BACKGROUND COLOR -->
+		<div class="taptap-background-color">
+		</div>
+		<!-- END MENU BACKGROUND COLOR -->
+		
+		<!-- BEGIN MENU BACKGROUND IMAGE -->
+        		<!-- END MENU BACKGROUND IMAGE -->
+
+        <!-- BEGIN BACKGROUND OVERELAY -->
+		<div class="taptap-background-overlay">
+		</div>
+		<!-- END BACKGROUND OVERELAY -->
+
+		<!-- BEGIN MAIN WRAPPER -->
+		<div class="taptap-main-wrapper">
+			<div class="taptap-main-inner">
+				<div class="taptap-main">
+					<div class="taptap-main-inner-inner">
+                        <div class="taptap-contents-wrapper">
+                            <!-- BEGIN HEADING -->
+                                                        <!-- END HEADING -->
+                            
+                            <!-- BEGIN SUBHEADING -->
+                                                        <!-- END SUBHEADING -->
+
+                            <!-- BEGIN IMAGE -->
+                                                        <div class="taptap-image">
+                                                                <a href="/index.php" >
+                                                                    <img  data-rjs="3" data-src="https://www.nomadtravel.co.uk/wp-content/uploads/2017/08/logo-1.png" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><noscript><img src="https://www.nomadtravel.co.uk/wp-content/uploads/2017/08/logo-1.png" data-rjs="3"></noscript>
+                                                                </a>
+                                                            </div>
+                                                        <!-- END IMAGE -->
+                            
+                            <!-- BEGIN MENU -->
+                                                        <div class="taptap-by-bonfire"><ul id="menu-mobile-nav" class="menu"><li id="menu-item-5644" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a href="https://www.nomadtravel.co.uk/">Home<div class="taptap-menu-item-description"></div></a></li>
+<li id="menu-item-24034" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.nomadtravel.co.uk/occupational-health">Screening<div class="taptap-menu-item-description"></div></a></li>
+<li id="menu-item-17555" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/covid-19">COVID-19 Tests<div class="taptap-menu-item-description"></div></a>
+<ul class="sub-menu">
+	<li id="menu-item-23357" class="menu-item menu-item-type-post_type menu-item-object-product"><a href="https://www.nomadtravel.co.uk/travel-store/coronavirus/travel-test-package-booking">Day 2 &#038; Day 8 Tests<div class="taptap-menu-item-description"></div></a></li>
+	<li id="menu-item-23358" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.nomadtravel.co.uk/lateral-flow-antigen-test-travel">Lateral Flow Antigen Tests<div class="taptap-menu-item-description"></div></a></li>
+	<li id="menu-item-23359" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.nomadtravel.co.uk/covid-19#home-pcr">At-Home Self Tests<div class="taptap-menu-item-description"></div></a></li>
+	<li id="menu-item-23360" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="https://www.nomadtravel.co.uk/covid-19#clinic-pcr">In-Clinic Tests<div class="taptap-menu-item-description"></div></a></li>
+</ul>
+</li>
+<li id="menu-item-5641" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.nomadtravel.co.uk/travel-clinic">Clinic<div class="taptap-menu-item-description"></div></a></li>
+<li id="menu-item-5642" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.nomadtravel.co.uk/pharmacy">Pharmacy<div class="taptap-menu-item-description"></div></a></li>
+<li id="menu-item-5643" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.nomadtravel.co.uk/store">Store<div class="taptap-menu-item-description"></div></a></li>
+<li id="menu-item-7581" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.nomadtravel.co.uk/travel-clinic/clinic-finder">Find a Travel Clinic<div class="taptap-menu-item-description"></div></a></li>
+<li id="menu-item-7582" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.nomadtravel.co.uk/store-finder">Find a Travel Store<div class="taptap-menu-item-description"></div></a></li>
+<li id="menu-item-22038" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat"><a href="https://www.nomadtravel.co.uk/travel-store/sale">Sale<div class="taptap-menu-item-description"></div></a></li>
+<li id="menu-item-5646" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.nomadtravel.co.uk/blog">Blog<div class="taptap-menu-item-description"></div></a></li>
+<li id="menu-item-5647" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.nomadtravel.co.uk/basket">Basket<div class="taptap-menu-item-description"></div></a></li>
+<li id="menu-item-5648" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="https://www.nomadtravel.co.uk/contact">Contact Us<div class="taptap-menu-item-description"></div></a></li>
+</ul></div>                            <!-- END MENU -->
+                            
+                            <!-- BEGIN WIDGETS -->
+                            	
+                            <!-- END WIDGETS -->
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END MAIN WRAPPER -->
+        
+        <!-- BEGIN SHOW SUBMENU WHEN CURRENT -->
+                <script>
+        jQuery(document).ready(function (jQuery) {
+        'use strict';
+            /* close sub-menus when menu button clicked */
+            jQuery(".taptap-menu-button-wrapper").on('click', function(e) {
+                jQuery(".taptap-by-bonfire .menu > li").find(".sub-menu").slideUp(300);
+                jQuery(".taptap-by-bonfire .menu > li > span, .taptap-by-bonfire .sub-menu > li > span").removeClass("taptap-submenu-active");
+            })
+            jQuery(document).keyup(function(e) {
+                if (e.keyCode == 27) {
+                     jQuery(".taptap-by-bonfire .menu > li").find(".sub-menu").slideUp(300);
+                    jQuery(".taptap-by-bonfire .menu > li > span, .taptap-by-bonfire .sub-menu > li > span").removeClass("taptap-submenu-active");
+                }
+            });
+        });
+        </script>
+                <!-- END SHOW SUBMENU WHEN CURRENT -->
+        
+        <!-- BEGIN IF RETINA ENABLED -->
+                <!-- END IF RETINA ENABLED -->
+        
+        <style>
+                </style>
+
+	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/988a756525c985a3cb88caf6a/63a2452d5fd880e7fd443ddbc.js");</script>	<script type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<link rel='stylesheet' id='rs-plugin-settings-css'  href='https://www.nomadtravel.co.uk/wp-content/plugins/revslider/public/assets/css/rs6.css' type='text/css' media='all' />
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+#rs-demo-id {}
+</style>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/assets/js/accounting/accounting.js' id='accounting-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/assets/js/selectWoo/selectWoo.full.js' id='selectWoo-js'></script>
+<script type='text/javascript' id='yith-wcan-shortcodes-js-extra'>
+/* <![CDATA[ */
+var yith_wcan_shortcodes = {"query_param":"yith_wcan","supported_taxonomies":["product_cat","product_tag"],"content":"#content","change_browser_url":"1","instant_filters":"1","ajax_filters":"1","show_clear_filter":"","scroll_top":"","scroll_target":"","modal_on_mobile":"","session_param":"","show_current_children":"","loader":"","toggles_open_on_modal":"","mobile_media_query":"991","base_url":"https:\/\/www.nomadtravel.co.uk\/newsletter\/","terms_per_page":"10","currency_format":{"symbol":"&pound;","decimal":".","thousand":",","precision":2,"format":"%s%v"},"labels":{"empty_option":"All","search_placeholder":"Search...","no_items":"No item found","show_more":"Show %d more","close":"Close","save":"Save","show_results":"Show results","clear_selection":"Clear","clear_all_selections":"Clear All"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/yith-woocommerce-ajax-navigation/assets/js/yith-wcan-shortcodes.js' id='yith-wcan-shortcodes-js'></script>
+<script type='text/javascript' src='//cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js' id='ccc-cookie-control-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/taptap-by-bonfire/taptap.js' id='bonfire-taptap-js-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.js' id='js-cookie-js'></script>
+<script type='text/javascript' id='woocommerce-js-extra'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.js' id='woocommerce-js'></script>
+<script type='text/javascript' id='wc-cart-fragments-js-extra'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_5f4d66fab5868a6cd68b73ee6b474700","fragment_name":"wc_fragments_5f4d66fab5868a6cd68b73ee6b474700","request_timeout":"5000"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.js' id='wc-cart-fragments-js'></script>
+<script type='text/javascript' id='awdr-main-js-extra'>
+/* <![CDATA[ */
+var awdr_params = {"ajaxurl":"https:\/\/www.nomadtravel.co.uk\/wp-admin\/admin-ajax.php","nonce":"3c99e3ea6e","enable_update_price_with_qty":"show_when_matched","refresh_order_review":"0","custom_target_simple_product":"","custom_target_variable_product":"","js_init_trigger":"","awdr_opacity_to_bulk_table":"","awdr_dynamic_bulk_table_status":"0","awdr_dynamic_bulk_table_off":"on","custom_simple_product_id_selector":"","custom_variable_product_id_selector":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woo-discount-rules/v2/Assets/Js/site_main.js' id='awdr-main-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woo-discount-rules/v2/Assets/Js/awdr-dynamic-price.js' id='awdr-dynamic-price-js'></script>
+<script type='text/javascript' id='mailchimp-woocommerce-js-extra'>
+/* <![CDATA[ */
+var mailchimp_public_data = {"site_url":"https:\/\/www.nomadtravel.co.uk","ajax_url":"https:\/\/www.nomadtravel.co.uk\/wp-admin\/admin-ajax.php","disable_carts":"","subscribers_only":"","language":"en","allowed_to_set_cookies":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/mailchimp-for-woocommerce/public/js/mailchimp-woocommerce-public.min.js' id='mailchimp-woocommerce-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/slick/slick.min.js' id='slick-script-js'></script>
+<script type='text/javascript' src='https://maps.google.com/maps/api/js?key=AIzaSyBXLtqR6g0PvPISYVoNOOhIRZ01wdVpHAw&#038;libraries=geometry%2Cplaces%2Cweather%2Cpanoramio%2Cdrawing&#038;language=en' id='wpgmp-google-api-js'></script>
+<script type='text/javascript' id='wpgmp-google-map-main-js-extra'>
+/* <![CDATA[ */
+var wpgmp_local = {"select_radius":"Select Radius","search_placeholder":"Enter address or latitude or longitude or title or city or state or country or postal code here...","select":"Select","select_all":"Select All","select_category":"Select Category","all_location":"All","show_locations":"Show Locations","sort_by":"Sort by","wpgmp_not_working":"not working...","place_icon_url":"https:\/\/www.nomadtravel.co.uk\/wp-content\/plugins\/wp-google-map-gold\/assets\/images\/icons\/","wpgmp_location_no_results":"No results found.","wpgmp_route_not_avilable":"Route is not available for your requested route.","img_grid":"<span class='span_grid'><a class='wpgmp_grid'><img  data-src='https:\/\/www.nomadtravel.co.uk\/wp-content\/plugins\/wp-google-map-gold\/assets\/images\/grid.png' class='lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='><noscript><img src='https:\/\/www.nomadtravel.co.uk\/wp-content\/plugins\/wp-google-map-gold\/assets\/images\/grid.png'></noscript><\/a><\/span>","img_list":"<span class='span_list'><a class='wpgmp_list'><img  data-src='https:\/\/www.nomadtravel.co.uk\/wp-content\/plugins\/wp-google-map-gold\/assets\/images\/list.png' class='lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='><noscript><img src='https:\/\/www.nomadtravel.co.uk\/wp-content\/plugins\/wp-google-map-gold\/assets\/images\/list.png'></noscript><\/a><\/span>","img_print":"<span class='span_print'><a class='wpgmp_print' data-action='wpgmp-print'><img  data-src='https:\/\/www.nomadtravel.co.uk\/wp-content\/plugins\/wp-google-map-gold\/assets\/images\/print.png' class='lazyload' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='><noscript><img src='https:\/\/www.nomadtravel.co.uk\/wp-content\/plugins\/wp-google-map-gold\/assets\/images\/print.png'></noscript><\/a><\/span>","hide":"Hide","show":"Show","start_location":"Start Location","start_point":"Start Point","radius":"Radius","end_location":"End Location","take_current_location":"Take Current Location","center_location_message":"Your Location","driving":"Driving","bicycling":"Bicycling","walking":"Walking","transit":"Transit","metric":"Metric","imperial":"Imperial","find_direction":"Find Direction","miles":"Miles","km":"KM","show_amenities":"Show Amenities","find_location":"Find Locations","prev":"Prev","next":"Next"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/wp-google-map-gold/assets/js/maps.js' id='wpgmp-google-map-main-js'></script>
+<script type='text/javascript' id='ubermenu-js-extra'>
+/* <![CDATA[ */
+var ubermenu_data = {"remove_conflicts":"on","reposition_on_load":"off","intent_delay":"300","intent_interval":"100","intent_threshold":"7","scrollto_offset":"50","scrollto_duration":"1000","responsive_breakpoint":"959","accessible":"on","retractor_display_strategy":"responsive","touch_off_close":"on","submenu_indicator_close_mobile":"on","collapse_after_scroll":"on","v":"3.7.0.1","configurations":["main"],"ajax_url":"https:\/\/www.nomadtravel.co.uk\/wp-admin\/admin-ajax.php","plugin_url":"https:\/\/www.nomadtravel.co.uk\/wp-content\/plugins\/ubermenu\/","disable_mobile":"off","prefix_boost":"","use_core_svgs":"off","aria_role_navigation":"off","aria_nav_label":"off","aria_expanded":"off","aria_hidden":"off","aria_controls":"","aria_responsive_toggle":"off","icon_tag":"i","esc_close_mobile":"on","theme_locations":{"taptap-by-bonfire":"TapTap, by Bonfire","main-nav":"Main Menu","foot-nav":"Footer Menu","info-nav":"Info Menu","clinic-nav":"Clinic Menu"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/ubermenu/assets/js/ubermenu.js' id='ubermenu-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/wp-smushit/app/assets/js/smush-lazy-load.min.js' id='smush-lazy-load-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/woo-discount-rules-pro/Assets/Js/awdr_pro.js' id='woo_discount_pro_script-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/js/scripts.js' id='bones-js-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-includes/js/imagesloaded.min.js' id='imagesloaded-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-includes/js/masonry.min.js' id='masonry-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/js/libs/bootstrap.min.js' id='bones-bootstrap-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/js/libs/FitVids.js-master/jquery.fitvids.js' id='fitvids-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/themes/nomad-travel/library/js/fitvid.js' id='fitvids-xtra-js'></script>
+<script type='text/javascript' src='https://www.nomadtravel.co.uk/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js' id='wpb_composer_front_js-js'></script>
+<script type="text/javascript">window.dataLayer = window.dataLayer || [];(function(dataLayer, jQuery) {
+})(dataLayer, jQuery);</script>
+<!-- WooCommerce JavaScript -->
+<script type="text/javascript">
+jQuery(function($) { 
+
+					$( '.add_to_cart_button:not(.product_type_variable, .product_type_grouped)' ).on( 'click', function() {
+						ga( 'ec:addProduct', {'id': ($(this).data('product_sku')) ? ($(this).data('product_sku')) : ('#' + $(this).data('product_id')),'quantity': $(this).data('quantity')} );
+						ga( 'ec:setAction', 'add' );
+						ga( 'send', 'event', 'UX', 'click', 'add to cart' );
+					});
+				
+ });
+</script>
+<script type="text/javascript">
+gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 24) {if(typeof Placeholders != 'undefined'){
+                        Placeholders.enable();
+                    }} } );jQuery(document).bind('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } );
+</script>
+<script type="text/javascript">
+gform.initializeOnLoaded( function() { jQuery(document).trigger('gform_post_render', [24, 1]) } );
+</script>
+            <script type="text/javascript">
+
+                var config = {
+                    apiKey: '89e98b6a14eb347d80d1fd618dd8e0914dfdd88c',
+                    product: 'PRO',
+                    logConsent: true,
+                    notifyOnce: false,
+                    initialState: 'NOTIFY',
+                    position: 'RIGHT',
+                    theme: 'LIGHT',
+                    layout: 'SLIDEOUT',
+                    toggleType: 'slider',
+                    acceptBehaviour :  'all',
+                    closeOnGlobalChange : true,
+                    iabCMP: false,
+                                        closeStyle: 'button',
+                    consentCookieExpiry: 90,
+                    subDomains :  true,
+                    mode :  'gdpr',
+                    rejectButton: false,
+                    settingsStyle : 'button',
+                    encodeCookie : false,
+                    setInnerHTML: true,
+                    accessibility: {
+                        accessKey: 'C',
+                        highlightFocus: false,
+                        outline: true,
+                        overlay: true,
+                        disableSiteScrolling: false,                       
+                    },
+                                        text: {
+                        title: 'This site uses cookies',
+                        intro: 'Some of these cookies are essential, while others help us to improve your experience by providing insights into how the site is being used',
+                        necessaryTitle: 'Necessary Cookies',
+                        necessaryDescription: 'Necessary cookies enable core functionality. The website cannot function properly without these cookies, and can only be disabled by changing your browser preferences',
+                        thirdPartyTitle: 'Warning: Some cookies require your attention',
+                        thirdPartyDescription: 'Consent for the following cookies could not be automatically revoked. Please follow the link(s) below to opt out manually',
+                        on: 'On',
+                        off: 'Off',
+                        accept: 'Accept All',
+                        settings: 'Cookie Preferences',
+                        acceptRecommended: 'Accept Recommended Settings',
+                        acceptSettings: 'Accept All',
+                        notifyTitle: 'Our site uses Cookies',
+                        notifyDescription: 'We use cookies to optimise the functionality of our website and give you the best possible experience',
+                        closeLabel: 'Close',
+                        cornerButton :  'Set cookie preferences',
+                        landmark :  'Cookie preferences',
+                        showVendors : 'Show vendors within this category',
+                        thirdPartyCookies : 'This vendor may set third party cookies',
+                        readMore : 'Read more',
+                        accessibilityAlert: 'This site uses cookies to store information. Press accesskey C to learn more about your options..',
+                        rejectSettings: 'Reject All',
+                        reject: 'Reject',
+                                            },
+                    
+                    branding: {
+                        fontColor: '#fff',
+                        fontFamily: 'Arial,sans-serif',
+                        fontSizeTitle: '1.2em',
+                        fontSizeHeaders: '1em',
+                        fontSize: '0.8em',
+                        backgroundColor: '#1d3d92',
+                        toggleText: '#fff',
+                        toggleColor: '#2f2f5f',
+                        toggleBackground: '#111125',
+                        alertText: '#fff',
+                        alertBackground: '#313147',
+                        acceptText: '#ffffff',
+                        acceptBackground: '#111125',
+                        rejectText: '#ffffff',
+                        rejectBackground: '#111125',
+                        closeText : '#111125',
+                        closeBackground : '#FFF',
+                        notifyFontColor : '#FFF',
+                        notifyBackgroundColor: '#1d3d92',
+                                                buttonIcon: 'https://www.nomadtravel.co.uk/wp-content/uploads/privacyicon.svg',
+                                                buttonIconWidth: '30px',
+                        buttonIconHeight: '30px',
+                        removeIcon: false,
+                        removeAbout: true                    },
+                                        
+                                                            
+                  
+                                                                                
+                                        necessaryCookies: [ 'wordpress_*','wordpress_logged_in_*','CookieControl','cookies.js','cookietest','rc::a','rc::c','wc_cart_hash_#','wc_fragments_#' ],
+                    
+                                        optionalCookies: [
+                                                                        {
+                            name: 'statistics',
+                            label: 'Statistics',
+                            description: 'Statistics and analytics cookies help us understand how you interact with our website by collecting and reporting information anonymously.',
+                                                        cookies: [ '_ga', '_ga_#', '_gat', '_gid', 'mailchimp_landing_site', '' ],
+                            onAccept: function () {
+                                                            },
+                            onRevoke: function () {
+                                                            },
+                                                        recommendedState: 'on',
+                            lawfulBasis: 'consent',
+                        
+                            
+                        },
+                                                                                                {
+                            name: 'marketing',
+                            label: 'Marketing',
+                            description: 'Marketing cookies track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user',
+                                                        cookies: [ '_fbp', '_s', '_shopify_s', '_shopify_y', '_y', 'ads/ga-audiences' ],
+                            onAccept: function () {
+                                                            },
+                            onRevoke: function () {
+                                                            },
+                                                        recommendedState: 'on',
+                            lawfulBasis: 'consent',
+                        
+                            
+                        },
+                                                                    ],
+                                                                statement: {
+                            description: 'For more detailed information, read our',
+                            name: 'Cookie Policy',
+                            url: 'https://www.nomadtravel.co.uk/privacy#cookies',
+                            updated: '01/11/2021'
+                        },
+                                            sameSiteCookie : true,
+                    sameSiteValue : 'Strict',
+                    notifyDismissButton: false
+                };
+                CookieControl.load(config);
+            </script>
+
+              </body>
+  </html>
